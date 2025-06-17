@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.0] - 2025-06-16
+## [0.1.0] - 2025-06-17
 
 - chore: install and configure Nuxt and Vuetify
 - chore: setup dev environment (TypeScript, eslint, etc)
