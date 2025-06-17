@@ -93,5 +93,15 @@ export default defineNuxtConfig({
         },
       ],
     },
+
+    // Credits
+    credits: {
+      creator: {
+        name: 'Nuxtify',
+        domain: 'nuxtify.dev',
+      },
+      prependText: 'Made with love by',
+      appendText: ' Ship weirdly fast.',
+    },
   },
 })
