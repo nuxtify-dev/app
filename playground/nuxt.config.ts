@@ -1,4 +1,4 @@
-import { mdiAccountMultiple, mdiViewDashboard } from '@mdi/js'
+import { mdiAccountMultiple, mdiViewDashboard, mdiHome, mdiTestTube, mdiLogin, mdiAccountPlus, mdiAccountCog } from '@mdi/js'
 
 export default defineNuxtConfig({
   modules: ['../src/module'],
@@ -21,6 +21,65 @@ export default defineNuxtConfig({
 
     // Navigation
     navigation: {
+      // Main nav
+      primary: [
+        {
+          text: 'Home',
+          to: '/',
+          icon: mdiHome,
+        },
+        {
+          text: 'Test',
+          to: '/test',
+          icon: mdiTestTube,
+        },
+        {
+          text: 'Sign In',
+          to: '/signin',
+          icon: mdiLogin,
+        },
+        {
+          text: 'Sign Up',
+          to: '/signup',
+          icon: mdiAccountPlus,
+        },
+      ],
+      // User menu
+      secondary: [
+        {
+          text: 'Account',
+          to: '/account',
+          icon: mdiAccountCog,
+        },
+      ],
+      // Overflow menu
+      altSecondary: [
+        {
+          text: 'About',
+          href: 'https://nuxtify.dev/about',
+        },
+        {
+          text: 'Contact',
+          href: 'https://nuxtify.dev/contact',
+        },
+        {
+          text: 'Articles',
+          href: 'https://enuxtify.dev/articles',
+        },
+        {
+          text: 'Accessibility',
+          href: 'https://nuxtify.dev/accessibility',
+        },
+        {
+          text: 'Privacy',
+          href: 'https://nuxtify.dev/privacy',
+        },
+        {
+          text: 'Terms',
+          href: 'https://nuxtify.dev/terms',
+        },
+      ],
+      // Admin
       admin: [
         {
           text: 'Dashboard',
