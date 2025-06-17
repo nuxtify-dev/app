@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.17.5",
-    "@nuxtify/core": "^0.1.7",
+    "@nuxtify/core": "^0.1.8",
     "defu": "^6.1.4",
     "file-saver": "^2.0.5",
     "firebase": "^11.9.1",
@@ -65,7 +65,7 @@
     "eslint": "^9.29.0",
     "nuxt": "^3.17.5",
     "typescript": "~5.8.3",
-    "vitest": "^3.2.3",
+    "vitest": "^3.2.4",
     "vue-tsc": "^2.2.10"
   }
 }
