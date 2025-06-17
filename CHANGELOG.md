@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.1] - 2025-06-17
+
+- refactor: correctly extend nuxt config
+- dx: use nuxt kit logger
+- fix(build): @nuxt/kit implicit dependency warning
+
 ## [0.1.0] - 2025-06-17
 
 - chore: install and configure Nuxt and Vuetify
