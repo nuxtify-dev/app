@@ -53,12 +53,13 @@ In short, Nuxtify helps you build faster, iterate smarter, and maintain consiste
 
 ## <a name="modules">🧩 Modules</a>
 
-### [Nuxtify Core](https://github.com/nuxtify-dev/core) (this module)
+### [Nuxtify App](https://github.com/nuxtify-dev/app) (this module)
 
-Provides the core functionality for Nuxtify, including:
+Provides a single page app (SPA) skeleton for building your next SaaS or AI tool.
 
-- Default components, composables, and utilities
-- Global configuration and theming with [Vuetify](https://vuetifyjs.com/en/introduction/why-vuetify/)
+- Admin backend powered by [Firebase](https://firebase.google.com/)
+- Sign in and sign up pages powered by [Firebase Authentication](https://firebase.google.com/products/auth)
+- User account page, navigation, and more...
 
 ### [Nuxtify Pages](https://github.com/nuxtify-dev/pages)
 
@@ -67,12 +68,20 @@ Provides single and multi-page website building blocks so you can _ship weirdly 
 - Ready to use page components, page templates, and email subscribe form
 - (coming soon) Robots, sitemaps, schema.org, social share images, broken links, and more powered by [Nuxt SEO](https://nuxtseo.com/)
 
+### [Nuxtify Core](https://github.com/nuxtify-dev/core)
+
+Provides the core functionality for Nuxtify, including:
+
+- Default components, composables, and utilities
+- Global configuration and theming with [Vuetify](https://vuetifyjs.com/en/introduction/why-vuetify/)
+
 ## <a name="features">✨ Features</a>
 
-Nuxtify Core builds on the amazing features of [Vue](https://vuejs.org/guide/introduction), [Nuxt](https://nuxt.com/docs/getting-started/introduction), and [Vuetify](https://vuetifyjs.com/en/introduction/why-vuetify/).
+Nuxtify App builds on the functionality in [Nuxtify Core](https://github.com/nuxtify-dev/core).
 
 ### 💡 Intuitive UI & UX
 
+- Ready to use components, page templates, and layouts so you can _ship weirdly fast_
 - Easily override any component with [Vuetify global defaults](https://vuetifyjs.com/en/features/global-configuration/)
 - Icons powered by [Material Design Icons](https://pictogrammers.com/library/mdi/) via [Vuetify icon fonts](https://vuetifyjs.com/en/features/icon-fonts/)
 - Fully responsive and adapts to all modern browsers and devices
@@ -91,7 +100,6 @@ Nuxtify Core builds on the amazing features of [Vue](https://vuejs.org/guide/int
 ### 🤖 Security & Performance
 
 - Fully tree shakeable for small bundle sizes
-- Optimized caching and rendering strategies for each page with [hybrid rendering](https://nuxt.com/docs/guide/concepts/rendering#hybrid-rendering)
 - (coming soon) Fast, responsive, optimized images for [20+ image providers](https://image.nuxt.com/get-started/providers) powered by [Nuxt Image](https://image.nuxt.com/)
 - (coming soon) Load third-party scripts with better performance, privacy, security powered by [Nuxt Scripts](https://scripts.nuxt.com/)
 - (coming soon) Optimal security patterns and principles powered by [Nuxt Security](https://nuxt.com/modules/security)
@@ -109,19 +117,19 @@ To use this module in your [new](https://nuxt.com/docs/getting-started/installat
 Install the module in your Nuxt application with one command:
 
 ```bash
-npx nuxi@latest module add @nuxtify/core
+npx nuxi@latest module add @nuxtify/app
 ```
 
 ### 2. Update Nuxt config
 
-Add the `@nuxtify/core` module to `nuxt.config.ts` and configure it:
+Add the `@nuxtify/app` module to `nuxt.config.ts` and configure it:
 
 ```ts
 // nuxt.config.ts
 
 export default defineNuxtConfig({
-  modules: ["@nuxtify/core"],
-  nuxtifyCore: {
+  modules: ["@nuxtify/app"],
+  nuxtifyApp: {
     /* module specific options */
   },
 });
@@ -156,13 +164,13 @@ It's easy to stay up to date with the latest version of Nuxtify. Just update to 
 **Minor and patch versions**
 
 ```bash
-npm update @nuxtify/core --save
+npm update @nuxtify/app --save
 ```
 
 **Major versions**
 
 ```bash
-npm install @nuxtify/core@latest --save
+npm install @nuxtify/app@latest --save
 ```
 
 ## <a name="contributing">❤️ Contributing</a>
@@ -171,8 +179,8 @@ I invite you to contribute and help improve Nuxtify!
 
 Here are a few ways you can get involved:
 
-- **Reporting Bugs:** If you come across any bugs or issues, please [open a new issue](https://github.com/nuxtify-dev/core/issues/new).
-- **Suggestions:** Have ideas to enhance Nuxtify? I'd love to hear them! You can [open a new issue](https://github.com/nuxtify-dev/core/issues/new) describing your feature request or suggestion.
+- **Reporting Bugs:** If you come across any bugs or issues, please [open a new issue](https://github.com/nuxtify-dev/app/issues/new).
+- **Suggestions:** Have ideas to enhance Nuxtify? I'd love to hear them! You can [open a new issue](https://github.com/nuxtify-dev/app/issues/new) describing your feature request or suggestion.
 - **Local Development:** contribute directly to the framework with a pull request. Just follow the instructions below.
 
 ## <a name="local-development">🏠 Local Development</a>
@@ -204,17 +212,17 @@ Learn about [authoring Nuxt modules](https://nuxt.com/docs/guide/going-further/m
 
 ## <a name="license">⚖️ License</a>
 
-[MIT](https://github.com/nuxtify-dev/core/blob/main/LICENSE)
+[MIT](https://github.com/nuxtify-dev/app/blob/main/LICENSE)
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/@nuxtify/core/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/@nuxtify/core
-[npm-downloads-src]: https://img.shields.io/npm/dm/@nuxtify/core.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/@nuxtify/core
-[license-src]: https://img.shields.io/npm/l/@nuxtify/core.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/@nuxtify/core
+[npm-version-src]: https://img.shields.io/npm/v/@nuxtify/app/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/@nuxtify/app
+[npm-downloads-src]: https://img.shields.io/npm/dm/@nuxtify/app.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npm.chart.dev/@nuxtify/app
+[license-src]: https://img.shields.io/npm/l/@nuxtify/app.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/@nuxtify/app
 [nuxtify-src]: https://img.shields.io/badge/Nuxtify_Docs-00DC82
 [nuxtify-href]: https://nuxtify.dev/docs
 [playground-src]: https://img.shields.io/badge/%F0%9F%8F%80_Playground-Demo-00DC82?labelColor=020420
-[playground-href]: https://stackblitz.com/github/nuxtify-dev/core?file=playground%2Fapp.vue
+[playground-href]: https://stackblitz.com/github/nuxtify-dev/app?file=playground%2Fapp.vue
