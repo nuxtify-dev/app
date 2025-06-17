@@ -1,5 +1,11 @@
 <script setup lang="ts">
+// App state
 const nuxtifyConfig = useNuxtifyConfig()
+
+// Page info
+useSeoMeta({
+  title: 'Test',
+})
 </script>
 
 <template>

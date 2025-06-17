@@ -5,7 +5,7 @@ const dialog = useDialog()
 const toast = useToast()
 
 // Page info
-useServerSeoMeta({
+useSeoMeta({
   title: `${nuxtifyConfig.brand?.name} playground`,
   description: `This is the ${nuxtifyConfig.brand?.name} playground.`,
 })
