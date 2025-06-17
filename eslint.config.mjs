@@ -16,5 +16,10 @@ export default createConfigForNuxt({
   },
 })
   .append(
-    // your custom flat config here...
+    {
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'warn',
+        'vue/valid-v-slot': 'warn',
+      },
+    },
   )

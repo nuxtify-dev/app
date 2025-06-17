@@ -1,8 +1,14 @@
 {
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
   "cSpell.words": [
     "apdisk",
+    "defu",
     "nuxtify",
+    "papaparse",
     "vercel"
-  ]
+  ],
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never"
+  },
 }
