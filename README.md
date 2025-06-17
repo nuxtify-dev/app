@@ -57,9 +57,9 @@ In short, Nuxtify helps you build faster, iterate smarter, and maintain consiste
 
 Provides a single page app (SPA) skeleton for building your next SaaS or AI tool.
 
-- Admin backend powered by [Firebase](https://firebase.google.com/)
+- Admin backend powered by [Firebase](https://firebase.google.com/) and [Vuefire](https://vuefire.vuejs.org/)
 - Sign in and sign up pages powered by [Firebase Authentication](https://firebase.google.com/products/auth)
-- User account page, navigation, and more...
+- User account page, app style navigation, and more...
 
 ### [Nuxtify Pages](https://github.com/nuxtify-dev/pages)
 
