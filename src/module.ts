@@ -8,6 +8,7 @@ import {
   defineNuxtModule,
   extendPages,
   installModule,
+  useLogger,
 } from '@nuxt/kit'
 import { name, version } from '../package.json'
 import type { ModuleOptions } from './types/module'
@@ -46,6 +47,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
+    const logger = useLogger('@nuxtify/app')
 
     // Update Nuxt config
     _nuxt.options.ssr = false
@@ -213,8 +215,8 @@ export default defineNuxtModule<ModuleOptions>({
       if (coreImportIndex > -1) {
         imports.splice(coreImportIndex, 1)
         if (_options.verboseLogs)
-          console.log(
-            '[nuxtify-app] Intentionally overriding useNuxtifyConfig from @nuxtify/core.',
+          logger.info(
+            'Intentionally overriding useNuxtifyConfig from @nuxtify/core.',
           )
       }
     })
