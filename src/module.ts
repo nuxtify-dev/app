@@ -8,7 +8,7 @@ import {
   defineNuxtModule,
   extendPages,
   installModule,
-} from 'nuxt/kit'
+} from '@nuxt/kit'
 import { name, version } from '../package.json'
 import type { ModuleOptions } from './types/module'
 
