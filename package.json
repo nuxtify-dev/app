@@ -43,7 +43,13 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.17.5"
+    "@nuxt/kit": "^3.17.5",
+    "@nuxtify/core": "^0.1.7",
+    "defu": "^6.1.4",
+    "file-saver": "^2.0.5",
+    "firebase": "^11.9.1",
+    "nuxt-vuefire": "^1.0.5",
+    "papaparse": "^5.5.3"
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.5.0",
@@ -52,7 +58,9 @@
     "@nuxt/module-builder": "^1.0.1",
     "@nuxt/schema": "^3.17.5",
     "@nuxt/test-utils": "^3.19.1",
+    "@types/file-saver": "^2.0.7",
     "@types/node": "latest",
+    "@types/papaparse": "^5.3.16",
     "changelogen": "^0.6.1",
     "eslint": "^9.29.0",
     "nuxt": "^3.17.5",
