@@ -9,6 +9,7 @@ import {
   extendPages,
   installModule,
   useLogger,
+  extendRouteRules,
 } from '@nuxt/kit'
 import { name, version } from '../package.json'
 import type { ModuleOptions } from './types/module'
@@ -49,26 +50,11 @@ export default defineNuxtModule<ModuleOptions>({
     const resolver = createResolver(import.meta.url)
     const logger = useLogger('@nuxtify/app')
 
-    // Update Nuxt config
-    _nuxt.options.ssr = false
-    _nuxt.options.routeRules = defu(_nuxt.options.routeRules || {}, {
-      // Middleware
-      '/': {
-        appMiddleware: ['auth-user-only'],
-      },
-      '/account': {
-        appMiddleware: ['auth-user-only'],
-      },
-      '/signin': {
-        appMiddleware: ['auth-public'],
-      },
-      '/signup': {
-        appMiddleware: ['auth-public'],
-      },
-      '/admin/**': {
-        appMiddleware: ['auth-super-admin-only'],
-      },
-    })
+    // Warn if SSR
+    if (_nuxt.options.ssr) {
+      logger.warn('[@nuxtify/app]', 'Not compatible with SSR. For the most reliable experience, please set `ssr: false` in your nuxt.config.ts.')
+      _nuxt.options.ssr = false
+    }
 
     // Expose module options to app config
     _nuxt.options.appConfig.nuxtify = defu(_nuxt.options.appConfig.nuxtify, {
@@ -113,14 +99,31 @@ export default defineNuxtModule<ModuleOptions>({
     addRouteMiddleware({
       name: 'auth-public',
       path: resolver.resolve('./runtime/middleware/authPublic.ts'),
-    })
+    }, { prepend: true })
     addRouteMiddleware({
       name: 'auth-user-only',
       path: resolver.resolve('./runtime/middleware/authUserOnly.ts'),
-    })
+    }, { prepend: true })
     addRouteMiddleware({
       name: 'auth-super-admin-only',
       path: resolver.resolve('./runtime/middleware/authSuperAdminOnly.ts'),
+    }, { prepend: true })
+
+    // Route rules
+    extendRouteRules('/', {
+      appMiddleware: ['auth-user-only'],
+    })
+    extendRouteRules('/account', {
+      appMiddleware: ['auth-user-only'],
+    })
+    extendRouteRules('/signin', {
+      appMiddleware: ['auth-public'],
+    })
+    extendRouteRules('/signup', {
+      appMiddleware: ['auth-public'],
+    })
+    extendRouteRules('/admin/**', {
+      appMiddleware: ['auth-super-admin-only'],
     })
 
     // Layouts
@@ -215,7 +218,7 @@ export default defineNuxtModule<ModuleOptions>({
       if (coreImportIndex > -1) {
         imports.splice(coreImportIndex, 1)
         if (_options.verboseLogs)
-          logger.info(
+          logger.info('[@nuxtify/app]',
             'Intentionally overriding useNuxtifyConfig from @nuxtify/core.',
           )
       }
