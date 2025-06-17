@@ -64,7 +64,7 @@ export default defineNuxtConfig({
         },
         {
           text: 'Articles',
-          href: 'https://enuxtify.dev/articles',
+          href: 'https://nuxtify.dev/articles',
         },
         {
           text: 'Accessibility',
