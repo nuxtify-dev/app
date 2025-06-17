@@ -6,13 +6,16 @@ const nuxtifyConfig = useNuxtifyConfig()
 </script>
 
 <template>
-  <div v-if="nuxtifyConfig.credits">
-    <small v-if="nuxtifyConfig.credits">
+  <div v-if="nuxtifyConfig.credits?.prependText || nuxtifyConfig.credits?.creator?.name || nuxtifyConfig.credits?.appendText">
+    <small>
       <!-- Credits -->
-      <span class="text-medium-emphasis">
+      <span
+        v-if="nuxtifyConfig.credits.prependText"
+        class="text-medium-emphasis"
+      >
         © {{ nuxtifyConfig.credits.prependText }}
       </span>
-      <span v-if="nuxtifyConfig.credits.creator">
+      <span v-if="nuxtifyConfig.credits.creator?.name">
         <a
           v-if="nuxtifyConfig.credits.creator.domain"
           id="brand-name"
@@ -24,7 +27,10 @@ const nuxtifyConfig = useNuxtifyConfig()
       </span>
 
       <!-- Message -->
-      <div class="text-medium-emphasis">
+      <div
+        v-if="nuxtifyConfig.credits.appendText"
+        class="text-medium-emphasis"
+      >
         {{ nuxtifyConfig.credits.appendText }}
       </div>
     </small>
