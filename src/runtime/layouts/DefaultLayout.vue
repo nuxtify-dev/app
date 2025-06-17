@@ -9,12 +9,6 @@ import {
   useUserDoc,
   usersColName,
 } from '#imports'
-</script>
-
-<script lang="ts">
-export default {
-  name: 'DefaultLayout',
-}
 
 // App state
 const nuxtifyConfig = useNuxtifyConfig()
