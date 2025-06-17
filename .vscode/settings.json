@@ -2,6 +2,7 @@
   "eslint.useFlatConfig": true,
   "cSpell.words": [
     "apdisk",
+    "APPCHECK",
     "defu",
     "nuxtify",
     "papaparse",

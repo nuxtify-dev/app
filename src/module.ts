@@ -77,6 +77,24 @@ export default defineNuxtModule<ModuleOptions>({
     await installModule('@nuxtify/core', {
       verboseLogs: _options.verboseLogs,
     })
+    await installModule('nuxt-vuefire', {
+      config: {
+        apiKey: '',
+        authDomain: '',
+        projectId: '',
+        storageBucket: '',
+        messagingSenderId: '',
+        appId: '',
+        measurementId: '',
+      },
+      auth: true,
+      appCheck: {
+        debug: process.env.NODE_ENV !== 'production',
+        isTokenAutoRefreshEnabled: true,
+        provider: 'ReCaptchaEnterprise',
+        key: '',
+      },
+    })
 
     // Components
     addComponentsDir({
