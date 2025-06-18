@@ -6,10 +6,10 @@ import {
   signInWithRedirect,
 } from 'firebase/auth'
 import type { VForm } from 'vuetify/components'
-import { mdiEye, mdiEyeOff } from '@mdi/js'
-import { ref } from 'vue'
 import { useDisplay } from 'vuetify'
 import { useFirebaseAuth } from 'vuefire'
+import { mdiEye, mdiEyeOff } from '@mdi/js'
+import { ref } from 'vue'
 import {
   useNuxtifyConfig,
   useErrorMessage,
@@ -123,7 +123,7 @@ async function signinWithGoogle() {
           :width="xs ? 200 : 250"
           class="mx-auto mx-sm-0"
         />
-        <h1 class="text-center text-sm-left text-subtitle-1 mt-4">
+        <h1 class="text-center text-sm-left text-h5 mt-4">
           {{ nuxtifyConfig.brand?.tagline }}
         </h1>
       </v-col>

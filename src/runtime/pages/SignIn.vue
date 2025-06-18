@@ -166,6 +166,7 @@ async function signinWithGoogle() {
         sm="6"
         xl="3"
       >
+        <!-- Logo and Tagline -->
         <AppLogo
           :width="xs ? 200 : 250"
           class="mx-auto mx-sm-0"
