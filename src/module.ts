@@ -48,11 +48,11 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url)
-    const logger = useLogger('@nuxtify/app')
+    const logger = useLogger('Nuxtify App')
 
     // Warn if SSR
     if (_nuxt.options.ssr) {
-      logger.warn('[@nuxtify/app]', 'Not compatible with SSR. For the most reliable experience, please set `ssr: false` in your nuxt.config.ts.')
+      logger.warn('[Nuxtify App]', 'Not compatible with SSR. For the most reliable experience, please set `ssr: false` in your nuxt.config.ts.')
       _nuxt.options.ssr = false
     }
 
@@ -218,7 +218,7 @@ export default defineNuxtModule<ModuleOptions>({
       if (coreImportIndex > -1) {
         imports.splice(coreImportIndex, 1)
         if (_options.verboseLogs)
-          logger.info('[@nuxtify/app]',
+          logger.info('[Nuxtify App]',
             'Intentionally overriding useNuxtifyConfig from @nuxtify/core.',
           )
       }
