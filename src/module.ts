@@ -98,15 +98,15 @@ export default defineNuxtModule<ModuleOptions>({
     // Middleware
     addRouteMiddleware({
       name: 'auth-public',
-      path: resolver.resolve('./runtime/middleware/authPublic.ts'),
+      path: resolver.resolve('./runtime/middleware/authPublic'),
     }, { prepend: true })
     addRouteMiddleware({
       name: 'auth-user-only',
-      path: resolver.resolve('./runtime/middleware/authUserOnly.ts'),
+      path: resolver.resolve('./runtime/middleware/authUserOnly'),
     }, { prepend: true })
     addRouteMiddleware({
       name: 'auth-super-admin-only',
-      path: resolver.resolve('./runtime/middleware/authSuperAdminOnly.ts'),
+      path: resolver.resolve('./runtime/middleware/authSuperAdminOnly'),
     }, { prepend: true })
 
     // Route rules
