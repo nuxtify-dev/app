@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.2] - 2025-06-18
+
+- fix: don't include extensions in middleware resolver
+
 ## [0.1.1] - 2025-06-17
 
 - refactor: correctly extend nuxt config
