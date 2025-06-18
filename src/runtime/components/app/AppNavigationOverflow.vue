@@ -18,7 +18,10 @@ const nuxtifyConfig = useNuxtifyConfig()
         />
       </template>
 
-      <v-card class="mt-2">
+      <v-card
+        class="mt-2"
+        style="max-width: 250px;"
+      >
         <!-- Minor Navigation -->
         <v-list
           nav
@@ -49,7 +52,7 @@ const nuxtifyConfig = useNuxtifyConfig()
         </v-list>
 
         <!-- Credits -->
-        <AppCredits class="px-4 pb-4" />
+        <AppCredits class="text-medium-emphasis px-4 pb-4" />
       </v-card>
     </v-menu>
   </div>
