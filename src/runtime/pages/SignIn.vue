@@ -4,7 +4,7 @@ import {
   GoogleAuthProvider,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
-  // signInWithPopup, // use this with localhost, still might need to refresh or manually update address bar
+  signInWithPopup,
   signInWithRedirect,
 } from 'firebase/auth'
 import type { VForm } from 'vuetify/components'
@@ -150,7 +150,14 @@ async function signinWithGoogle() {
     )
     return
   }
-  signInWithRedirect(auth, googleProvider)
+  if (import.meta.dev) {
+    // Use this with localhost, still might need to refresh or manually update address bar
+    signInWithPopup(auth, googleProvider)
+  }
+  else {
+    // Doesn't work on localhost
+    signInWithRedirect(auth, googleProvider)
+  }
 }
 </script>
 
