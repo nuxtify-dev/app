@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.3] - 2025-06-19
+
+- fix: firebase signout
+- ui: overflow menu polish
+- ui: match sign up to sign in font size
+- dx: allow for localhost firebase signin
+- dx: better logging tag
+
 ## [0.1.2] - 2025-06-18
 
 - fix: don't include extensions in middleware resolver
