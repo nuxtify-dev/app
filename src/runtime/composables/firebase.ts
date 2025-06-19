@@ -1,16 +1,27 @@
-import { signOut } from 'firebase/auth'
+import { signOut as firebaseSignOut } from 'firebase/auth'
 import { useFirebaseAuth, useFirebaseStorage } from 'vuefire'
 import { navigateTo } from '#imports'
 
-export const useSignOut = async (redirectTo = '/signin') => {
+export const useSignOut = () => {
   // App state
   const auth = useFirebaseAuth()!
 
-  // Sign out from Firebase Auth
-  await signOut(auth)
+  const signOut = async (redirectTo = '/signin') => {
+    if (!auth) {
+      console.error('Firebase auth not available.')
+      return
+    }
 
-  // Redirect
-  navigateTo(redirectTo)
+    // Sign out from Firebase Auth
+    await firebaseSignOut(auth)
+
+    // Redirect
+    await navigateTo(redirectTo)
+  }
+
+  return {
+    signOut,
+  }
 }
 
 export const usePublicStorageUrl = (fileRef: string, lastUpdated?: number | string) => {

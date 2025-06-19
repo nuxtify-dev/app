@@ -6,10 +6,10 @@ import { useNuxtifyConfig, useSignOut } from '#imports'
 // App state
 const nuxtifyConfig = useNuxtifyConfig()
 const currentUser = useCurrentUser()
+const { signOut } = useSignOut()
 
 const clickSignOut = async () => {
-  const signOut = useSignOut()
-  await signOut
+  await signOut()
 }
 </script>
 

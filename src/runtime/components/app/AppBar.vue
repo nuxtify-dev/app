@@ -9,14 +9,14 @@ import { useDrawer, useSignOut } from '#imports'
 const { xs } = useDisplay()
 const drawer = useDrawer()
 const currentUser = useCurrentUser()
+const { signOut } = useSignOut()
 
 // Page info
 const route = useRoute()
 const isSigningUp = computed(() => route.meta.layout === 'signup')
 
 const clickSignOut = async () => {
-  const signOut = useSignOut()
-  await signOut
+  await signOut()
 }
 </script>
 
