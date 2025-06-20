@@ -1,4 +1,4 @@
-import { mdiAccountMultiple, mdiViewDashboard, mdiHome, mdiTestTube, mdiLogin, mdiAccountPlus, mdiAccountCog } from '@mdi/js'
+import { mdiAccountMultiple, mdiViewDashboard, mdiHome, mdiFirebase, mdiTestTube, mdiLogin, mdiAccountPlus, mdiAccountCog } from '@mdi/js'
 
 export default defineNuxtConfig({
   modules: ['../src/module'],
@@ -28,6 +28,11 @@ export default defineNuxtConfig({
           text: 'Home',
           to: '/',
           icon: mdiHome,
+        },
+        {
+          text: 'Firebase',
+          to: '/firebase',
+          icon: mdiFirebase,
         },
         {
           text: 'Test',
