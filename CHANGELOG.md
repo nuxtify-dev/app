@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.8] - 2025-06-20
+
+- refactor: remove file-saver dependency
+
 ## [0.1.7] - 2025-06-20
 
 - fix: saveAs import error
