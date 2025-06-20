@@ -101,6 +101,7 @@ const submitForm = async () => {
         <v-btn
           :disabled="!form"
           :loading="loading"
+          size="large"
           block
           type="submit"
         >
