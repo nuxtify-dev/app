@@ -27,6 +27,10 @@ const props = defineProps({
     type: String,
     default: mdiFilePlus,
   },
+  buttonVariant: {
+    type: String as PropType<'flat' | 'text' | 'elevated' | 'tonal' | 'outlined' | 'plain' | undefined>,
+    default: undefined,
+  },
   buttonSize: {
     type: String,
     default: 'default',
@@ -114,6 +118,7 @@ async function submitForm() {
 <template>
   <span>
     <v-btn
+      :variant="buttonVariant"
       :size="buttonSize"
       :prepend-icon="buttonIcon"
       :disabled="loading"
