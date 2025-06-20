@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.6] - 2025-06-20
+
+- refactor: replace papaparse with csv-stringify
+
 ## [0.1.5] - 2025-06-20
 
 - feat: add quick search to list view
