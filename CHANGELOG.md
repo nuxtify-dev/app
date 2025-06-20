@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.1.4] - 2025-06-19
+
+- feat(ui): ability to customize upload button variant
+- playground: add firebase page
+
 ## [0.1.3] - 2025-06-19
 
 - fix: firebase signout
