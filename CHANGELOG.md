@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5] - 2025-06-20
+
+- feat: add quick search to list view
+- fix: papaparse import
+- ui: make button bigger
+- playground: add auth domain example
+
 ## [0.1.4] - 2025-06-19
 
 - feat(ui): ability to customize upload button variant
