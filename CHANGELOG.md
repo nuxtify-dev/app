@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.7] - 2025-06-20
+
+- fix: saveAs import error
+
 ## [0.1.6] - 2025-06-20
 
 - refactor: replace papaparse with csv-stringify
