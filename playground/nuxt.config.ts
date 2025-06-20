@@ -20,6 +20,11 @@ export default defineNuxtConfig({
       support: 'support@nuxtify.dev',
     },
 
+    // Auth
+    auth: {
+      adminDomain: 'nuxtify.dev',
+    },
+
     // Navigation
     navigation: {
       // Main nav
