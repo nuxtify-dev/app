@@ -85,6 +85,18 @@ const headers = [
     filterable: false,
   },
 ]
+
+// Define search groups
+const searchGroups = [
+  {
+    title: 'Role',
+    items: ['Admin', 'User'],
+  },
+  {
+    title: 'Status',
+    items: ['Active', 'Inactive'],
+  },
+]
 </script>
 
 <template>
@@ -102,6 +114,7 @@ const headers = [
           disable-create
           disable-delete
           :export-formats="['CSV']"
+          :search-groups
         />
       </v-col>
     </v-row>

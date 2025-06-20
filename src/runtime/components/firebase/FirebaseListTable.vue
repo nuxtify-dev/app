@@ -77,6 +77,13 @@ const props = defineProps({
     type: Function,
     default: () => '',
   },
+  searchGroups: {
+    type: Array as PropType<{
+      title: string
+      items: string[]
+    }[]>,
+    default: () => [],
+  },
 })
 
 // App state
@@ -112,7 +119,13 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
       />
     </div>
 
-    <v-card>
+    <v-card flat>
+      <!-- Quick search -->
+      <QuickSearch
+        v-model="search"
+        :search-groups
+      />
+
       <!-- Search -->
       <v-text-field
         v-if="!disableSearch"
