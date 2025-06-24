@@ -108,16 +108,8 @@ const submitForm = async () => {
           Save
         </v-btn>
 
-        <v-alert
-          v-if="errorMessage"
-          type="error"
-          density="compact"
-          variant="plain"
-          :icon="false"
-          class="mt-4"
-        >
-          {{ errorMessage }}
-        </v-alert>
+        <!-- Error message -->
+        <AppError class="mt-4" />
       </v-form>
     </v-card>
   </div>

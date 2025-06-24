@@ -180,13 +180,6 @@ function uploadFiles() {
     @change="uploadFiles"
   />
 
-  <v-alert
-    v-if="errorMessage"
-    type="error"
-    density="compact"
-    variant="plain"
-    :icon="false"
-  >
-    {{ errorMessage }}
-  </v-alert>
+  <!-- Error message -->
+  <AppError />
 </template>

@@ -179,15 +179,8 @@ async function signinWithGoogle() {
             <v-divider class="my-2 ml-4" />
           </div>
 
-          <v-alert
-            v-if="errorMessage"
-            type="error"
-            density="compact"
-            variant="text"
-            class="mb-2 mt-n6 px-0"
-          >
-            {{ errorMessage }}
-          </v-alert>
+          <!-- Error message -->
+          <AppError class="mb-2" />
 
           <!-- Password -->
           <v-form

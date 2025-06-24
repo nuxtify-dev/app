@@ -169,17 +169,6 @@ async function submitForm() {
         >
           Cancel
         </v-btn>
-
-        <!-- Error message -->
-        <v-alert
-          v-if="errorMessage"
-          type="error"
-          density="compact"
-          variant="plain"
-          :icon="false"
-        >
-          {{ errorMessage }}
-        </v-alert>
       </v-card>
     </v-dialog>
   </span>

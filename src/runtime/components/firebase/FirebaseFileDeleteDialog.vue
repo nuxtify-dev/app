@@ -153,15 +153,7 @@ async function submitForm() {
         </v-btn>
 
         <!-- Error message -->
-        <v-alert
-          v-if="errorMessage"
-          type="error"
-          density="compact"
-          variant="plain"
-          :icon="false"
-        >
-          {{ errorMessage }}
-        </v-alert>
+        <AppError />
       </v-card>
     </v-dialog>
   </span>

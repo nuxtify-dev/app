@@ -3,7 +3,7 @@ import type { CollectionReference } from 'firebase/firestore'
 import { mdiClockPlus, mdiPlus } from '@mdi/js'
 import { computed } from 'vue'
 import type { PropType } from 'vue'
-import { useErrorMessage, titleCase } from '#imports'
+import { titleCase } from '#imports'
 
 // Props
 const props = defineProps({
@@ -37,9 +37,6 @@ const props = defineProps({
   },
 })
 
-// App state
-const errorMessage = useErrorMessage()
-
 // Create related functionality
 const createIcon = computed(() => {
   switch (props.name) {
@@ -53,14 +50,8 @@ const createIcon = computed(() => {
 
 <template>
   <div class="d-print-none">
-    <v-alert
-      v-if="errorMessage"
-      type="error"
-      density="compact"
-      class="mb-4"
-    >
-      {{ errorMessage }}
-    </v-alert>
+    <!-- Error message -->
+    <AppError class="mb-4" />
 
     <!-- Delete -->
     <LazyFirebaseDeleteAction
