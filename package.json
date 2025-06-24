@@ -43,7 +43,7 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxtify/core": "^0.1.8",
+    "@nuxtify/core": "^0.1.9",
     "csv-stringify": "^6.5.2",
     "defu": "^6.1.4",
     "firebase": "^11.9.1",
