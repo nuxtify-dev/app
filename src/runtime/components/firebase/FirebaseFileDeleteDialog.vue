@@ -19,10 +19,16 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  deleteFieldName: {
+    type: String,
+    required: true,
+  },
   fileLabel: {
     type: String,
     default: 'File',
   },
+
+  // Button
   buttonActionText: {
     type: String,
     default: 'Delete',
@@ -68,17 +74,17 @@ async function submitForm() {
     const deleteRef = storageRef(storage, props.deleteRefString)
     await deleteObject(deleteRef)
 
-    // Reset to the default image url
-    const bucketName = storage.app.options.storageBucket
+    // Delete storage reference in Firestore
     await updateDoc(props.docRef, {
-      imageUrl: `gs://${bucketName}/meditations/${props.docRef.id}/cover.webp`,
+      [props.deleteFieldName]: '',
       lastUpdated: serverTimestamp(),
     })
 
-    dialog.value = false // keep the dialog open on error
+    // Dialog
+    dialog.value = false
 
     // Toast
-    toast.value.message = 'Image deleted!'
+    toast.value.message = `${props.fileLabel} deleted!`
     toast.value.show = true
 
     // Emit
@@ -124,12 +130,12 @@ async function submitForm() {
           @submit.prevent="submitForm"
         >
           <div class="text-body-1">
-            <slot name="confirm" />
-
-            <p>
-              Are you sure you want to {{ buttonActionText.toLowerCase() }} this
-              {{ fileLabel.toLowerCase() }}?
-            </p>
+            <slot name="confirm">
+              <p>
+                Are you sure you want to {{ buttonActionText.toLowerCase() }} this
+                {{ fileLabel.toLowerCase() }}?
+              </p>
+            </slot>
           </div>
 
           <v-btn
