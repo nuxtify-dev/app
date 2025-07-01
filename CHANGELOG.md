@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.9] - 2025-07-01
+
+- fix: generalize Firestore delete field name
+- refactor: use AppError component
+- chore(deps): update nuxtify core
+
 ## [0.1.8] - 2025-06-20
 
 - refactor: remove file-saver dependency
