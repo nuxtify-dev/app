@@ -113,7 +113,7 @@ export default defineNuxtModule<ModuleOptions>({
     extendRouteRules('/', {
       appMiddleware: ['auth-user-only'],
     })
-    extendRouteRules('/account', {
+    extendRouteRules('/account/**', {
       appMiddleware: ['auth-user-only'],
     })
     extendRouteRules('/signin', {
