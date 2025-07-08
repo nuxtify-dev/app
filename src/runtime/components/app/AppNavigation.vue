@@ -59,9 +59,10 @@ const isExpanded = ref(false)
           </v-list-item-title>
         </v-list-item>
 
+        <!-- Admin menu -->
         <template
           v-if="
-            isExpanded
+            (xs || isExpanded)
               && nuxtifyConfig.navigation?.admin?.length
               && isSuperAdmin(currentUser, nuxtifyConfig.auth?.adminDomain ?? '')
           "
