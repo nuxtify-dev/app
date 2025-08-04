@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.10] - 2025-08-04
+
+- feat: allow overriding vuetify config
+- ui: allow customizing delete button variant
+- fix: show admin menu on mobile
+- fix: make all /account routes require a login
+
 ## [0.1.9] - 2025-07-01
 
 - fix: generalize Firestore delete field name
