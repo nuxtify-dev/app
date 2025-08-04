@@ -3,6 +3,7 @@ import {
   addComponentsDir,
   addImportsDir,
   addLayout,
+  addPlugin,
   addRouteMiddleware,
   createResolver,
   defineNuxtModule,
@@ -83,6 +84,9 @@ export default defineNuxtModule<ModuleOptions>({
         key: '',
       },
     })
+
+    // Plugins
+    addPlugin(resolver.resolve('./runtime/plugins/vuetify'))
 
     // Components
     addComponentsDir({

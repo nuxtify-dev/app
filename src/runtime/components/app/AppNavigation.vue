@@ -23,7 +23,6 @@ const isExpanded = ref(false)
     :expand-on-hover="!xs"
     :rail="!xs"
     :permanent="!xs"
-    floating
     @update:rail="isExpanded = !isExpanded"
   >
     <nav>
