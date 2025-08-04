@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.11] - 2025-08-04
+
+- fix: merge, don't replace vuetify options
+
 ## [0.1.10] - 2025-08-04
 
 - feat: allow overriding vuetify config
