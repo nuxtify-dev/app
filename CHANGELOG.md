@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.13] - 2025-08-22
+
+- fix: timestampToString to formatDate
+
+## [0.1.12] - 2025-08-22
+
 BREAKING CHANGES
 
 Use formatDate(yourTimestamp.toDate()) instead of timestampToString(yourTimestamp).
