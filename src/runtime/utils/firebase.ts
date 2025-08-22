@@ -41,27 +41,6 @@ export function getFirebaseConsoleUrl(
   return firebaseConsoleUrl
 }
 
-export function timestampToString(
-  timestamp: Timestamp,
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options
-  options = <Intl.DateTimeFormatOptions>{
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-  },
-  defaultString = '-',
-  locale = 'en-US',
-) {
-  if (timestamp && timestamp.seconds) {
-    return timestamp.toDate().toLocaleString(locale, options) || defaultString
-  }
-  else {
-    return defaultString
-  }
-}
-
 export function timestampToISOString(
   timestamp: Timestamp,
   defaultString = '-',
