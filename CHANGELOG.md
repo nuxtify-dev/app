@@ -1,5 +1,12 @@
 # Changelog
 
+BREAKING CHANGES
+
+Use formatDate(yourTimestamp.toDate()) instead of timestampToString(yourTimestamp).
+
+- remove!: timestampToString in favor of formatDate
+- chore(deps): update nuxtify core
+
 ## [0.1.11] - 2025-08-04
 
 - fix: merge, don't replace vuetify options
