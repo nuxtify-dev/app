@@ -9,7 +9,7 @@ import {
   titleCase,
   navigateTo,
   fullName,
-  timestampToString,
+  formatDate,
 } from '#imports'
 
 // Types
@@ -194,21 +194,21 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
           }}</NuxtLink>
         </template>
         <template #item.signupCompleted="{ item }">
-          {{ timestampToString(item.signupCompleted) }}
+          {{ formatDate(item.signupCompleted.toDate()) }}
         </template>
         <template #item.firstActivity="{ item }">
-          {{ timestampToString(item.firstActivity) }}
+          {{ formatDate(item.firstActivity.toDate()) }}
         </template>
         <template #item.lastActivity="{ item }">
-          {{ timestampToString(item.lastActivity) }}
+          {{ formatDate(item.lastActivity.toDate()) }}
         </template>
         <template #item.subscribed="{ item }">
-          {{ timestampToString(item.subscribed) }}
+          {{ formatDate(item.subscribed.toDate()) }}
         </template>
 
         <!-- Shared slots -->
         <template #item.created="{ item }">
-          {{ timestampToString(item.created) }}
+          {{ formatDate(item.created.toDate()) }}
         </template>
 
         <!-- Bottom slot -->

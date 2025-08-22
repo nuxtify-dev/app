@@ -10,7 +10,7 @@ import {
   useDisplay,
   usersColName,
   fullName,
-  timestampToString,
+  formatDate,
   booleanToText,
   getFirebaseConsoleUrl,
 } from '#imports'
@@ -120,20 +120,20 @@ const firebaseConsoleUrl = computed(() =>
               <v-list-item>
                 <v-list-item-title>Last Active</v-list-item-title>
                 <v-list-item-subtitle>
-                  {{ timestampToString(userDoc.lastActivity) }}
+                  {{ formatDate(userDoc.lastActivity.toDate()) }}
                 </v-list-item-subtitle>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title>Created</v-list-item-title>
                 <v-list-item-subtitle>
-                  {{ timestampToString(userDoc.created) }}
+                  {{ formatDate(userDoc.created.toDate()) }}
                 </v-list-item-subtitle>
               </v-list-item>
 
               <v-list-item>
                 <v-list-item-title>Last Updated</v-list-item-title>
                 <v-list-item-subtitle>
-                  {{ timestampToString(userDoc.lastUpdated) }}
+                  {{ formatDate(userDoc.lastUpdated.toDate()) }}
                 </v-list-item-subtitle>
               </v-list-item>
 
