@@ -70,14 +70,14 @@ const createIcon = computed(() => {
       class="ml-sm-2"
     />
 
-    <!-- New -->
+    <!-- Create -->
     <v-btn
       v-if="!disableCreate"
-      :to="`${rootUrl}/new`"
+      :to="`${rootUrl}/create`"
       :prepend-icon="createIcon"
       class="ml-sm-2"
     >
-      New {{ titleCase(name) }}
+      Create {{ titleCase(name) }}
     </v-btn>
   </div>
 </template>
