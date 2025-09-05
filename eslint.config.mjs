@@ -18,6 +18,7 @@ export default createConfigForNuxt({
   .append(
     {
       rules: {
+        'import/order': 'warn',
         '@typescript-eslint/no-explicit-any': 'warn',
         'vue/valid-v-slot': 'warn',
       },
