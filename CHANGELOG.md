@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.0] - 2025-09-09
+
+Add Firebase 12 support.
+
+- chore(deps): update to firebase v12
+- chore(deps): update csv-stringify
+- refactor!: use /create instead of /new
+- dx: add eslint warn import order rule
+
 ## [0.1.13] - 2025-08-22
 
 - fix: timestampToString to formatDate
