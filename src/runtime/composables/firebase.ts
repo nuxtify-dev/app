@@ -4,16 +4,11 @@ import { navigateTo } from '#imports'
 
 export const useSignOut = () => {
   // App state
-  const auth = useFirebaseAuth()!
+  const auth = useFirebaseAuth()
 
   const signOut = async (redirectTo = '/signin') => {
-    if (!auth) {
-      console.error('Firebase auth not available.')
-      return
-    }
-
     // Sign out from Firebase Auth
-    await firebaseSignOut(auth)
+    if (auth) await firebaseSignOut(auth)
 
     // Redirect
     await navigateTo(redirectTo)

@@ -173,6 +173,13 @@ export default defineNuxtModule<ModuleOptions>({
         file: resolver.resolve('./runtime/pages/SignUp.vue'),
       })
 
+      // Sign Out
+      pages.unshift({
+        name: 'signout',
+        path: '/signout',
+        file: resolver.resolve('./runtime/pages/SignOut.vue'),
+      })
+
       // Account
       pages.unshift({
         name: 'account',
