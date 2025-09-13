@@ -1,8 +1,21 @@
 # Changelog
 
+## [0.2.1] - 2025-09-13
+
+BREAKING CHANGES
+
+Use useFirebaseStorageURL instead of usePublicStorageUrl.
+
+- refactor!: usePublicStorageUrl to useFirebaseStorageURL
+- refactor: signout logic
+
 ## [0.2.0] - 2025-09-09
 
 Add Firebase 12 support.
+
+BREAKING CHANGES
+
+Use /create instead of /new.
 
 - chore(deps): update to firebase v12
 - chore(deps): update csv-stringify
