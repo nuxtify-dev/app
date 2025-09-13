@@ -95,6 +95,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Composables
     addImportsDir(resolver.resolve('./runtime/composables'))
+    addImportsDir(resolver.resolve('./runtime/composables/firebase'))
 
     // Utils
     addImportsDir(resolver.resolve('./runtime/utils'))
