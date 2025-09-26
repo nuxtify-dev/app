@@ -194,21 +194,21 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
           }}</NuxtLink>
         </template>
         <template #item.signupCompleted="{ item }">
-          {{ formatDate(item.signupCompleted.toDate()) }}
+          {{ formatDate(item.signupCompleted.toDate(), { type: 'datetime' }) }}
         </template>
         <template #item.firstActivity="{ item }">
-          {{ formatDate(item.firstActivity.toDate()) }}
+          {{ formatDate(item.firstActivity.toDate(), { type: 'datetime' }) }}
         </template>
         <template #item.lastActivity="{ item }">
-          {{ formatDate(item.lastActivity.toDate()) }}
+          {{ formatDate(item.lastActivity.toDate(), { type: 'datetime' }) }}
         </template>
         <template #item.subscribed="{ item }">
-          {{ formatDate(item.subscribed.toDate()) }}
+          {{ formatDate(item.subscribed.toDate(), { type: 'datetime' }) }}
         </template>
 
         <!-- Shared slots -->
         <template #item.created="{ item }">
-          {{ formatDate(item.created.toDate()) }}
+          {{ formatDate(item.created.toDate(), { type: 'datetime' }) }}
         </template>
 
         <!-- Bottom slot -->

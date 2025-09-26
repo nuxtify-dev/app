@@ -120,20 +120,20 @@ const firebaseConsoleUrl = computed(() =>
               <v-list-item>
                 <v-list-item-title>Last Active</v-list-item-title>
                 <v-list-item-subtitle>
-                  {{ formatDate(userDoc.lastActivity.toDate()) }}
+                  {{ formatDate(userDoc.lastActivity.toDate(), { type: 'datetime' }) }}
                 </v-list-item-subtitle>
               </v-list-item>
               <v-list-item>
                 <v-list-item-title>Created</v-list-item-title>
                 <v-list-item-subtitle>
-                  {{ formatDate(userDoc.created.toDate()) }}
+                  {{ formatDate(userDoc.created.toDate(), { type: 'datetime' }) }}
                 </v-list-item-subtitle>
               </v-list-item>
 
               <v-list-item>
                 <v-list-item-title>Last Updated</v-list-item-title>
                 <v-list-item-subtitle>
-                  {{ formatDate(userDoc.lastUpdated.toDate()) }}
+                  {{ formatDate(userDoc.lastUpdated.toDate(), { type: 'datetime' }) }}
                 </v-list-item-subtitle>
               </v-list-item>
 
