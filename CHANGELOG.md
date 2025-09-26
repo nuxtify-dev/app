@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.2] - 2025-09-26
+
+- ui: add time to user fields
+
 ## [0.2.1] - 2025-09-13
 
 BREAKING CHANGES
