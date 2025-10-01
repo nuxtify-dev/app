@@ -3,6 +3,7 @@ import { FirebaseError } from 'firebase/app'
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
+  signInWithPopup,
   signInWithRedirect,
 } from 'firebase/auth'
 import type { VForm } from 'vuetify/components'
@@ -98,12 +99,19 @@ async function submitForm() {
 async function signinWithGoogle() {
   // Firebase auth logic
   if (!auth) {
-    console.log(
+    console.warn(
       `[${nuxtifyConfig.brand?.name}] Firebase auth provider not found.`,
     )
     return
   }
-  signInWithRedirect(auth, googleProvider)
+  if (import.meta.dev) {
+    // Use this with localhost, still might need to refresh or manually update address bar
+    signInWithPopup(auth, googleProvider)
+  }
+  else {
+    // Doesn't work on localhost
+    signInWithRedirect(auth, googleProvider)
+  }
 }
 </script>
 

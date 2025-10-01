@@ -146,7 +146,7 @@ async function forgotPassword() {
 async function signinWithGoogle() {
   // Firebase auth logic
   if (!auth) {
-    console.log(
+    console.warn(
       `[${nuxtifyConfig.brand?.name}] Firebase auth provider not found.`,
     )
     return
