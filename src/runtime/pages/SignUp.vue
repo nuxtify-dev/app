@@ -16,7 +16,7 @@ import {
   formRules,
   addArticle,
   definePageMeta,
-  useHead,
+  useSeoMeta,
   navigateTo,
 } from '#imports'
 
@@ -29,8 +29,9 @@ const errorMessage = useErrorMessage()
 definePageMeta({
   layout: 'public',
 })
-useHead({
+useSeoMeta({
   title: 'Sign Up',
+  description: `Sign up for ${nuxtifyConfig.brand?.name}.`,
 })
 
 // Form state
