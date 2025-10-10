@@ -128,7 +128,6 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
 
       <!-- Search -->
       <v-text-field
-        v-if="!disableSearch"
         v-model="search"
         :prepend-inner-icon="mdiMagnify"
         :label="`Filter ${namePlural}`"
@@ -136,7 +135,10 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
         single-line
         hide-details
         clearable
+        persistent-clear
         class="mx-4 mb-2"
+        :max-width="414"
+        @click:clear="search = ''"
       />
 
       <!-- Data table -->
