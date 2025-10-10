@@ -25,6 +25,19 @@ const clickToast = () => {
   toast.value.message = 'This is a toast!'
   toast.value.show = true
 }
+
+// Quick search
+const quickSearchValue = ref('')
+const searchGroups = [
+  {
+    title: 'Fruits',
+    items: ['Apple', 'Banana', 'Orange'],
+  },
+  {
+    title: 'Vegetables',
+    items: ['Carrot', 'Broccoli', 'Spinach'],
+  },
+]
 </script>
 
 <template>
@@ -94,6 +107,22 @@ const clickToast = () => {
               <v-card class="pa-4">
                 <h2>AppLogo</h2>
                 <AppLogo />
+              </v-card>
+            </v-col>
+          </v-row>
+
+          <!-- Quick search -->
+          <v-row>
+            <v-col cols="12">
+              <v-card class="pa-4">
+                <h2>QuickSearch</h2>
+                <p class="mb-2">
+                  Selected: {{ quickSearchValue || 'none' }}
+                </p>
+                <QuickSearch
+                  v-model="quickSearchValue"
+                  :search-groups="searchGroups"
+                />
               </v-card>
             </v-col>
           </v-row>
