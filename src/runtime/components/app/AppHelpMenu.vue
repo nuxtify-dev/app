@@ -38,6 +38,7 @@ const nuxtifyConfig = useNuxtifyConfig()
             :target="link.href ? '_blank' : undefined"
             :rel="link.href ? 'noopener noreferrer' : undefined"
             exact
+            slim
             color="secondary"
           >
             <template #prepend>

@@ -1,4 +1,17 @@
-import { mdiAccountMultiple, mdiViewDashboard, mdiHome, mdiFirebase, mdiTestTube, mdiLogin, mdiAccountPlus, mdiAccountCog } from '@mdi/js'
+import {
+  mdiAccountCog,
+  mdiAccountMultiple,
+  mdiAccountPlus,
+  mdiCommentQuote,
+  mdiFirebase,
+  mdiForum,
+  mdiHome,
+  mdiLifebuoy,
+  mdiLogin,
+  mdiTelevisionPlay,
+  mdiTestTube,
+  mdiViewDashboard,
+} from '@mdi/js'
 
 export default defineNuxtConfig({
   modules: ['../src/module'],
@@ -65,6 +78,40 @@ export default defineNuxtConfig({
           text: 'Account',
           to: '/account',
           icon: mdiAccountCog,
+        },
+      ],
+      // Help menu
+      altPrimary: [
+        {
+          title: '',
+          links: [
+            {
+              text: 'Getting Started',
+              href: '/signup/complete',
+              icon: mdiTelevisionPlay,
+            },
+          ],
+        },
+        {
+          title: 'GET IN TOUCH',
+          links: [
+            {
+              text: 'Join Our Community',
+              href: '/community',
+              icon: mdiForum,
+              openInNew: true,
+            },
+            {
+              text: 'Help & Support',
+              to: '/support',
+              icon: mdiLifebuoy,
+            },
+            {
+              text: 'Leave A Review',
+              to: '/review',
+              icon: mdiCommentQuote,
+            },
+          ],
         },
       ],
       // Overflow menu
