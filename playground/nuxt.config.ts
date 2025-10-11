@@ -11,6 +11,10 @@ export default defineNuxtConfig({
 
     // Brand
     brand: {
+      logo: {
+        lightUrl: '/img/nuxtify-logo-light.png',
+        darkUrl: '/img/nuxtify-logo-dark.png',
+      },
       tagline: 'This is a sample tagline for the app module.',
     },
 
