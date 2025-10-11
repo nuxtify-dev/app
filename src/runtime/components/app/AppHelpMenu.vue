@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { mdiHelpCircleOutline, mdiRocketLaunch, mdiArrowTopRight } from '@mdi/js'
+import { mdiHelpCircleOutline, mdiArrowTopRight } from '@mdi/js'
 import { useNuxtifyConfig } from '#imports'
 
 // App state
@@ -14,8 +14,6 @@ const nuxtifyConfig = useNuxtifyConfig()
           :icon="mdiHelpCircleOutline"
           v-bind="props"
           color="primary"
-          class="beamerTrigger"
-          data-beamer-click="false"
         />
       </template>
 
@@ -24,17 +22,6 @@ const nuxtifyConfig = useNuxtifyConfig()
         density="compact"
         class="mt-4"
       >
-        <v-list-item
-          class="beamerTrigger"
-          @click="1 + 1"
-        >
-          <template #prepend>
-            <v-icon :icon="mdiRocketLaunch" />
-          </template>
-
-          <v-list-item-title>What's New</v-list-item-title>
-        </v-list-item>
-
         <div
           v-for="group in nuxtifyConfig.navigation?.altPrimary"
           :key="group.title"
