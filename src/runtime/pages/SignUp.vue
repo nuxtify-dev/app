@@ -120,7 +120,7 @@ async function signinWithGoogle() {
     <v-row
       align="center"
       justify="center"
-      class="h-screen mt-4 mt-sm-0"
+      class="h-screen"
     >
       <v-col
         cols="12"
@@ -132,7 +132,7 @@ async function signinWithGoogle() {
           :width="xs ? 200 : 250"
           class="mx-auto mx-sm-0"
         />
-        <div class="text-center text-sm-left text-h5 mt-4">
+        <div class="text-center text-sm-left text-h6 text-sm-h5 mt-2">
           {{ nuxtifyConfig.brand?.tagline }}
         </div>
       </v-col>
@@ -144,6 +144,7 @@ async function signinWithGoogle() {
         <v-card
           class="mx-auto px-6 py-8"
           max-width="344"
+          elevation="8"
         >
           <!-- Heading -->
           <h1 class="text-center text-h5 mb-2">
@@ -247,7 +248,7 @@ async function signinWithGoogle() {
               :disabled="!form"
               :loading="loading"
               block
-              :size="xs ? 'default' : 'large'"
+              size="large"
               type="submit"
             >
               Get Started
