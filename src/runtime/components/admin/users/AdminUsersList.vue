@@ -8,6 +8,7 @@ import {
   usersColName,
   fullName,
   getFirebaseConsoleUrl,
+  getCloudStorageConsoleUrl,
 } from '#imports'
 
 // App state
@@ -36,6 +37,12 @@ const formatData = (item: (typeof users.data.value)[number]) => {
       [usersColName, item.id],
     ),
   )
+  const cloudStorageConsoleUrl = computed(() =>
+    getCloudStorageConsoleUrl(
+      firebaseApp.options.storageBucket as string,
+      `${usersColName}/${item.id}`,
+    ),
+  )
 
   return {
     id: item.id,
@@ -49,6 +56,7 @@ const formatData = (item: (typeof users.data.value)[number]) => {
     created: item.created,
     lastUpdated: item.lastUpdated,
     firebaseConsoleUrl: firebaseConsoleUrl.value,
+    cloudStorageConsoleUrl: cloudStorageConsoleUrl.value,
   }
 }
 const formattedData = computed(() => users.data.value.map(formatData))
@@ -76,6 +84,12 @@ const headers = [
   {
     title: 'Firebase Console',
     key: 'firebaseConsoleUrl',
+    sortable: false,
+    filterable: false,
+  },
+  {
+    title: 'GCS Console',
+    key: 'cloudStorageConsoleUrl',
     sortable: false,
     filterable: false,
   },

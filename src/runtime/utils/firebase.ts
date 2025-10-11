@@ -43,6 +43,20 @@ export function getFirebaseConsoleUrl(
   return firebaseConsoleUrl
 }
 
+/**
+ * Generates a Google Cloud Storage Console URL for a given bucket and path.
+ *
+ * @param bucket The name of the Google Cloud Storage bucket.
+ * @param path The path to the object within the bucket (e.g., 'images/my-image.jpg').
+ * @returns The full URL to the Google Cloud Storage Console for the specified object.
+ */
+export function getCloudStorageConsoleUrl(
+  bucket: string,
+  path: string,
+) {
+  return `https://console.cloud.google.com/storage/browser/${bucket}/${path}`
+}
+
 export function timestampToISOString(
   timestamp: Timestamp,
   defaultString = '-',

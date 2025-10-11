@@ -2,7 +2,7 @@
 import { doc } from 'firebase/firestore'
 import { useFirebaseApp, useFirestore, useDocument } from 'vuefire'
 import { computed } from 'vue'
-import { mdiAccount, mdiPencil } from '@mdi/js'
+import { mdiAccount, mdiArrowTopRight, mdiPencil } from '@mdi/js'
 import type { UserDoc } from '../../../../types/firestore'
 import {
   useDisplay,
@@ -10,6 +10,7 @@ import {
   fullName,
   formatDate,
   booleanToText,
+  getCloudStorageConsoleUrl,
   getFirebaseConsoleUrl,
 } from '#imports'
 
@@ -30,6 +31,12 @@ const firebaseConsoleUrl = computed(() =>
   getFirebaseConsoleUrl(
     firebaseApp.options.projectId as string,
     [usersColName, props.uid],
+  ),
+)
+const cloudStorageConsoleUrl = computed(() =>
+  getCloudStorageConsoleUrl(
+    firebaseApp.options.storageBucket as string,
+    `${usersColName}/${props.uid}`,
   ),
 )
 </script>
@@ -142,6 +149,26 @@ const firebaseConsoleUrl = computed(() =>
                     class="mr-1 mb-1"
                   />
                   Edit in Firebase
+                </NuxtLink>
+              </v-list-item-subtitle>
+            </v-list-item>
+
+            <v-list-item>
+              <v-list-item-title>Cloud Storage Console</v-list-item-title>
+              <v-list-item-subtitle>
+                <NuxtLink
+                  :to="cloudStorageConsoleUrl"
+                  external
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open in Cloud Storage
+                  <v-icon
+                    :icon="mdiArrowTopRight"
+                    size="small"
+                    color="grey"
+                    class="mb-1"
+                  />
                 </NuxtLink>
               </v-list-item-subtitle>
             </v-list-item>

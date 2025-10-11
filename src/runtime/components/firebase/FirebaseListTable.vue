@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CollectionReference } from 'firebase/firestore'
-import { mdiMagnify, mdiAccount, mdiPencil } from '@mdi/js'
+import { mdiMagnify, mdiAccount, mdiArrowTopRight, mdiPencil } from '@mdi/js'
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 import {
@@ -167,6 +167,25 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
               size="small"
               class="mr-1 mb-1"
             /> Edit
+          </NuxtLink>
+        </template>
+
+        <template #item.cloudStorageConsoleUrl="{ item }">
+          <NuxtLink
+            v-if="item.cloudStorageConsoleUrl"
+            :to="item.cloudStorageConsoleUrl"
+            external
+            target="_blank"
+            rel="noopener noreferrer"
+            @click.stop=""
+          >
+            Open
+            <v-icon
+              :icon="mdiArrowTopRight"
+              size="small"
+              color="grey"
+              class="mb-1"
+            />
           </NuxtLink>
         </template>
 
