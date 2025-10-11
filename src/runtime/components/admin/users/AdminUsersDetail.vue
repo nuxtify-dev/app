@@ -29,8 +29,7 @@ const userDoc = useDocument<UserDoc>(userDocRef)
 const firebaseConsoleUrl = computed(() =>
   getFirebaseConsoleUrl(
     firebaseApp.options.projectId as string,
-    usersColName,
-    userDoc.value?.id,
+    [usersColName, props.uid],
   ),
 )
 </script>

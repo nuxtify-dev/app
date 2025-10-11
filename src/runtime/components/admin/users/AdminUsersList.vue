@@ -33,8 +33,7 @@ const formatData = (item: (typeof users.data.value)[number]) => {
   const firebaseConsoleUrl = computed(() =>
     getFirebaseConsoleUrl(
       firebaseApp.options.projectId as string,
-      usersColName,
-      item.id,
+      [usersColName, item.id],
     ),
   )
 
