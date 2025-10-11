@@ -7,7 +7,7 @@ import {
   useNuxtifyConfig,
   usersColName,
   fullName,
-  getFirebaseConsoleUrl,
+  getFirestoreConsoleUrl,
   getCloudStorageConsoleUrl,
 } from '#imports'
 
@@ -31,8 +31,8 @@ const users = useCollection<UserDoc>(q, {
 
 // Format data
 const formatData = (item: (typeof users.data.value)[number]) => {
-  const firebaseConsoleUrl = computed(() =>
-    getFirebaseConsoleUrl(
+  const firestoreConsoleUrl = computed(() =>
+    getFirestoreConsoleUrl(
       firebaseApp.options.projectId as string,
       [usersColName, item.id],
     ),
@@ -55,7 +55,7 @@ const formatData = (item: (typeof users.data.value)[number]) => {
     lastActivity: item.lastActivity,
     created: item.created,
     lastUpdated: item.lastUpdated,
-    firebaseConsoleUrl: firebaseConsoleUrl.value,
+    firestoreConsoleUrl: firestoreConsoleUrl.value,
     cloudStorageConsoleUrl: cloudStorageConsoleUrl.value,
   }
 }
@@ -82,8 +82,8 @@ const headers = [
     filterable: false,
   },
   {
-    title: 'Firebase Console',
-    key: 'firebaseConsoleUrl',
+    title: 'Firestore Console',
+    key: 'firestoreConsoleUrl',
     sortable: false,
     filterable: false,
   },

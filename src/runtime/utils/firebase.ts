@@ -27,20 +27,19 @@ export function isSuperAdmin(
 }
 
 /**
- * Generates a Firebase Console URL for a given project and path.
+ * Generates a Firestore Console URL for a given project and path.
  *
  * @param projectId The Firebase project ID.
  * @param path An array of strings representing the path within Firestore (e.g., ['collection', 'docId', 'subcollection']).
- * @returns The full URL to the Firebase Console for the specified path.
+ * @returns The full URL to the Firestore Console for the specified path.
  */
-export function getFirebaseConsoleUrl(
+export function getFirestoreConsoleUrl(
   projectId: string,
   path: string[],
 ) {
-  const firebaseConsoleUrl = `https://console.firebase.google.com/project/${projectId}/firestore/databases/-default-/data/${
+  return `https://console.firebase.google.com/project/${projectId}/firestore/databases/-default-/data/${
     path.length > 0 ? `~2F${path.join('~2F')}` : ''
   }`
-  return firebaseConsoleUrl
 }
 
 /**

@@ -2,7 +2,7 @@
 import { doc } from 'firebase/firestore'
 import { useFirebaseApp, useFirestore, useDocument } from 'vuefire'
 import { computed } from 'vue'
-import { mdiAccount, mdiArrowTopRight, mdiPencil } from '@mdi/js'
+import { mdiAccount, mdiArrowTopRight } from '@mdi/js'
 import type { UserDoc } from '../../../../types/firestore'
 import {
   useDisplay,
@@ -11,7 +11,7 @@ import {
   formatDate,
   booleanToText,
   getCloudStorageConsoleUrl,
-  getFirebaseConsoleUrl,
+  getFirestoreConsoleUrl,
 } from '#imports'
 
 // PROPS
@@ -27,8 +27,8 @@ const db = useFirestore()
 // Get user from database
 const userDocRef = doc(db, usersColName, props.uid)
 const userDoc = useDocument<UserDoc>(userDocRef)
-const firebaseConsoleUrl = computed(() =>
-  getFirebaseConsoleUrl(
+const firestoreConsoleUrl = computed(() =>
+  getFirestoreConsoleUrl(
     firebaseApp.options.projectId as string,
     [usersColName, props.uid],
   ),
@@ -135,20 +135,21 @@ const cloudStorageConsoleUrl = computed(() =>
             </v-list-item>
 
             <v-list-item>
-              <v-list-item-title>Firebase Console</v-list-item-title>
+              <v-list-item-title>Firestore Console</v-list-item-title>
               <v-list-item-subtitle>
                 <NuxtLink
-                  :to="firebaseConsoleUrl"
+                  :to="firestoreConsoleUrl"
                   external
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  Open in Firestore
                   <v-icon
-                    :icon="mdiPencil"
+                    :icon="mdiArrowTopRight"
                     size="small"
-                    class="mr-1 mb-1"
+                    color="grey"
+                    class="mb-1"
                   />
-                  Edit in Firebase
                 </NuxtLink>
               </v-list-item-subtitle>
             </v-list-item>

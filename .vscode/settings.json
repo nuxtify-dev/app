@@ -6,6 +6,7 @@
     "defu",
     "nuxtify",
     "papaparse",
+    "subcollection",
     "vercel"
   ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
