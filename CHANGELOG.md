@@ -2,7 +2,7 @@
 
 ## [0.3.0] - 2025-10-11
 
-BREAKING CHANGES
+🚨 BREAKING CHANGES
 
 Use getFirestoreConsoleUrl instead of getFirebaseConsoleUrl (note new call signature).
 
@@ -40,7 +40,7 @@ Use getFirestoreConsoleUrl instead of getFirebaseConsoleUrl (note new call signa
 
 ## [0.2.1] - 2025-09-13
 
-BREAKING CHANGES
+🚨 BREAKING CHANGES
 
 Use useFirebaseStorageURL instead of usePublicStorageUrl.
 
@@ -51,7 +51,7 @@ Use useFirebaseStorageURL instead of usePublicStorageUrl.
 
 Add Firebase 12 support.
 
-BREAKING CHANGES
+🚨 BREAKING CHANGES
 
 Use /create instead of /new.
 
@@ -66,7 +66,7 @@ Use /create instead of /new.
 
 ## [0.1.12] - 2025-08-22
 
-BREAKING CHANGES
+🚨 BREAKING CHANGES
 
 Use formatDate(yourTimestamp.toDate()) instead of timestampToString(yourTimestamp).
 
