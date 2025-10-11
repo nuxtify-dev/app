@@ -1,5 +1,39 @@
 # Changelog
 
+## [0.3.0] - 2025-10-11
+
+BREAKING CHANGES
+
+Use getFirestoreConsoleUrl instead of getFirebaseConsoleUrl (note new call signature).
+
+### Enhancements
+
+- feat: add getCloudStorageConsoleUrl to admin users
+
+### UI/UX
+
+- ui: admin search box polish
+- ui: sign in/up polish
+
+### SEO
+
+- seo: pages should only have one h1 tag
+- seo: use useSeoMeta
+
+### Refactors/DX
+
+- refactor!: rename getFirebaseConsoleUrl to getFirestoreConsoleUrl
+- refactor!: allow deep paths in console url
+- refactor: add AdminUsersList component
+- refactor: add AdminUsersDetail component
+- dx: use signInWithPopup in dev
+
+### Playground
+
+- playground: add quick search
+- playground: add app logo
+- playground: add help menu
+
 ## [0.2.2] - 2025-09-26
 
 - ui: add time to user fields
