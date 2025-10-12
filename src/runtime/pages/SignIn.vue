@@ -179,7 +179,7 @@ async function signinWithGoogle() {
           :width="xs ? 200 : 250"
           class="mx-auto mx-sm-0"
         />
-        <div class="text-center text-sm-left text-h6 text-sm-h5 mt-2">
+        <div class="text-center text-sm-left text-h6 text-sm-h5 mt-4">
           {{ nuxtifyConfig.brand?.tagline }}
         </div>
       </v-col>
