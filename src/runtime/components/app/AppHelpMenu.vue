@@ -20,6 +20,7 @@ const nuxtifyConfig = useNuxtifyConfig()
       <v-list
         nav
         density="compact"
+        aria-label="Help menu"
         class="mt-4"
       >
         <div
