@@ -3,8 +3,8 @@ import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
 import { ref } from 'vue'
 import type { PropType } from 'vue'
 
-// Props
-defineProps({
+// PROPS
+const props = defineProps({
   searchGroups: {
     type: Array as PropType<{
       title: string
@@ -12,11 +12,15 @@ defineProps({
     }[]>,
     default: () => [],
   },
+  show: {
+    type: Boolean,
+    default: true,
+  },
 })
 
-// Component state
+// STATE - LOCAL
 const search = defineModel<string>({ default: '' })
-const showQuickSearch = ref(true)
+const showQuickSearch = ref(props.show)
 </script>
 
 <template>
