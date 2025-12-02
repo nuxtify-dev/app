@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.1] - 2025-12-01
+
+- ui: allow QuickSearch to be hidden by default
+- ui: add margin below logo on sign in/up
+- a11y: add aria label to help menu
+
 ## [0.3.0] - 2025-10-11
 
 🚨 BREAKING CHANGES
