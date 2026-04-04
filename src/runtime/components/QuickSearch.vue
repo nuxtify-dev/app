@@ -54,14 +54,13 @@ const showQuickSearch = ref(props.show)
           <h3 class="text-subtitle-2 text-medium-emphasis">
             {{ group.title }}
           </h3>
-          <v-chip-group>
+          <v-chip-group column>
             <v-chip
               v-for="item in group.items"
               :key="item"
               :text="item"
               label
               size="small"
-              class="mr-2"
               :variant="search === item ? 'flat' : 'outlined'"
               :color="search === item ? 'secondary' : 'primary'"
               @click="search === item ? search = '' : search = item"

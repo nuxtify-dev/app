@@ -31,7 +31,7 @@ const quickSearchValue = ref('')
 const searchGroups = [
   {
     title: 'Fruits',
-    items: ['Apple', 'Banana', 'Orange'],
+    items: ['Apple', 'Banana', 'Orange', 'Pear', 'Strawberry', 'Watermelon', 'Pineapple'],
   },
   {
     title: 'Vegetables',
