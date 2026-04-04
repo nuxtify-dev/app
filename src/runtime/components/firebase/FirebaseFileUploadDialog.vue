@@ -7,7 +7,12 @@ import { ref } from 'vue'
 import { mdiFilePlus } from '@mdi/js'
 import { useToast, useErrorMessage, pluralize } from '#imports'
 
-// Props
+// SLOTS
+defineSlots<{
+  guidelines?: (props: object) => any
+}>()
+
+// PROPS
 const props = defineProps({
   docRef: {
     type: Object as PropType<DocumentReference>,
@@ -59,17 +64,18 @@ const props = defineProps({
   },
 })
 
-// App state
+// STATE - GLOBAL
 const errorMessage = useErrorMessage()
 const toast = useToast()
 
-// Component state
+// STATE - LOCAL
 const emit = defineEmits(['updated'])
 const dialog = ref(false)
 const form = ref<VForm>()
 const loading = ref(false)
 const fileRefs = ref<string[]>([])
 
+// METHODS
 async function submitForm() {
   // Check if the form is valid
   const res = await form.value?.validate()
