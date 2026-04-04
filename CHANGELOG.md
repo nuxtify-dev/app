@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.3
+
+- refactor: firebase list table, add itemsPerPage prop
+- fix(ui): quick search items now wrap on mobile
+
 ## v0.3.2
 
 - feat: dynamically pass slots to firebase list ([dee760f](https://github.com/nuxtify-dev/app/commit/dee760f))
