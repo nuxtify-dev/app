@@ -5,10 +5,14 @@
     "APPCHECK",
     "defu",
     "Firestore",
+    "nuxi",
+    "nuxt",
     "nuxtify",
     "papaparse",
     "subcollection",
-    "vercel"
+    "vercel",
+    "vuefire",
+    "vuetify"
   ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.codeActionsOnSave": {
