@@ -153,6 +153,17 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
         :hover="!disableClick"
         @click:row="clickAction"
       >
+        <!-- Dynamically pass through all slots from parent -->
+        <template
+          v-for="(_, slotName) in $slots"
+          #[slotName]="slotProps"
+        >
+          <slot
+            :name="slotName"
+            v-bind="slotProps || {}"
+          />
+        </template>
+
         <!-- Firebase slots -->
         <template #item.firestoreConsoleUrl="{ item }">
           <NuxtLink
