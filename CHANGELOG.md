@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.3.2
+
+- feat: dynamically pass slots to firebase list ([dee760f](https://github.com/nuxtify-dev/app/commit/dee760f))
+- ui: wrap user menu in a div to allow for classes
+- ui: update Google logo
+- chore(deps): update firebase
+- chore(deps): update csv-stringify
+
+[compare changes](https://github.com/nuxtify-dev/app/compare/v0.3.1...v0.3.2)
+
 ## [0.3.1] - 2025-12-01
 
 - ui: allow QuickSearch to be hidden by default
