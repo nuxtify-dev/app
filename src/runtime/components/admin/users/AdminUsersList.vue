@@ -137,7 +137,10 @@ const searchGroups = [
       </v-avatar>
     </template>
     <template #item.name="{ item }">
-      <NuxtLink :to="`/admin/users/${item.id}`">{{
+      <NuxtLink
+        :to="`/admin/users/${item.id}`"
+        class="text-body-2 text-secondary link-hover"
+      >{{
         item.name || '(blank)'
       }}</NuxtLink>
     </template>
