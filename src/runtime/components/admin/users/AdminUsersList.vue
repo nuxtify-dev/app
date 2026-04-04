@@ -2,10 +2,12 @@
 import { collection, query } from 'firebase/firestore'
 import { useFirebaseApp, useFirestore, useCollection } from 'vuefire'
 import { provide, computed } from 'vue'
+import { mdiAccount } from '@mdi/js'
 import type { UserDoc } from '../../../../types/firestore'
 import {
   useNuxtifyConfig,
   usersColName,
+  formatDate,
   fullName,
   getFirestoreConsoleUrl,
   getCloudStorageConsoleUrl,
@@ -120,5 +122,36 @@ const searchGroups = [
     disable-delete
     :export-formats="['CSV']"
     :search-groups
-  />
+  >
+    <template #item.photoURL="{ item }">
+      <v-avatar color="primary">
+        <v-img
+          v-if="item.photoURL"
+          :src="item.photoURL"
+          :alt="fullName(item.firstName, item.lastName) ?? 'User avatar'"
+        />
+        <v-icon
+          v-else
+          :icon="mdiAccount"
+        />
+      </v-avatar>
+    </template>
+    <template #item.name="{ item }">
+      <NuxtLink :to="`/admin/users/${item.id}`">{{
+        item.name || '(blank)'
+      }}</NuxtLink>
+    </template>
+    <template #item.signupCompleted="{ item }">
+      {{ formatDate(item.signupCompleted.toDate(), { type: 'datetime' }) }}
+    </template>
+    <template #item.firstActivity="{ item }">
+      {{ formatDate(item.firstActivity.toDate(), { type: 'datetime' }) }}
+    </template>
+    <template #item.lastActivity="{ item }">
+      {{ formatDate(item.lastActivity.toDate(), { type: 'datetime' }) }}
+    </template>
+    <template #item.subscribed="{ item }">
+      {{ formatDate(item.subscribed.toDate(), { type: 'datetime' }) }}
+    </template>
+  </FirebaseListTable>
 </template>

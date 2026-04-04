@@ -27,6 +27,7 @@ const db = useFirestore()
 // Get user from database
 const userDocRef = doc(db, usersColName, props.uid)
 const userDoc = useDocument<UserDoc>(userDocRef)
+
 const firestoreConsoleUrl = computed(() =>
   getFirestoreConsoleUrl(
     firebaseApp.options.projectId as string,
@@ -39,11 +40,21 @@ const cloudStorageConsoleUrl = computed(() =>
     `${usersColName}/${props.uid}`,
   ),
 )
+
+// Breadcrumbs
+const breadcrumbs = [
+  {
+    title: 'Users',
+    to: `/admin/users`,
+  },
+  {
+    title: 'User Detail',
+  },
+]
 </script>
 
 <template>
   <div v-if="userDoc">
-    <!-- Name and avatar -->
     <v-row class="mt-md-2">
       <v-col
         cols="12"
@@ -51,6 +62,13 @@ const cloudStorageConsoleUrl = computed(() =>
         offset-xl="2"
         xl="4"
       >
+        <!-- Breadcrumbs -->
+        <v-breadcrumbs
+          :items="breadcrumbs"
+          class="text-secondary ml-n4"
+        />
+
+        <!-- Name and avatar -->
         <v-row>
           <v-col cols="4">
             <v-avatar

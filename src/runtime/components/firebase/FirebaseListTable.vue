@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CollectionReference } from 'firebase/firestore'
-import { mdiMagnify, mdiAccount, mdiArrowTopRight } from '@mdi/js'
+import { mdiMagnify, mdiArrowTopRight } from '@mdi/js'
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 import {
@@ -8,7 +8,6 @@ import {
   pluralize,
   titleCase,
   navigateTo,
-  fullName,
   formatDate,
 } from '#imports'
 
@@ -32,6 +31,10 @@ const props = defineProps({
   sortBy: {
     type: Array<SortItem>,
     default: undefined,
+  },
+  itemsPerPage: {
+    type: Number,
+    default: 25,
   },
   colRef: {
     type: Object as PropType<CollectionReference>,
@@ -109,13 +112,13 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
 
       <FirebaseListActions
         v-if="!disableCreate || exportFormats.length || !disableDelete"
-        :formatted-data="formattedData"
-        :root-url="rootUrl"
-        :col-ref="colRef"
-        :name="name"
-        :disable-create="disableCreate"
-        :export-formats="exportFormats"
-        :disable-delete="disableDelete"
+        :formatted-data
+        :root-url
+        :col-ref
+        :name
+        :disable-create
+        :export-formats
+        :disable-delete
       />
     </div>
 
@@ -144,11 +147,11 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
       <!-- Data table -->
       <v-data-table
         v-model="selectedRows"
-        :headers="headers"
-        :sort-by="sortBy"
+        :headers
+        :sort-by
         :items="formattedData"
-        :search="search"
-        :items-per-page="25"
+        :search
+        :items-per-page
         :show-select="!disableSelect"
         :hover="!disableClick"
         @click:row="clickAction"
@@ -201,47 +204,12 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
           </NuxtLink>
         </template>
 
-        <!-- User slots -->
-        <template
-          v-if="name === 'user'"
-          #item.photoURL="{ item }"
-        >
-          <v-avatar color="primary">
-            <v-img
-              v-if="item.photoURL"
-              :src="item.photoURL"
-              :alt="fullName(item.firstName, item.lastName) ?? 'User avatar'"
-            />
-            <v-icon
-              v-else
-              :icon="mdiAccount"
-            />
-          </v-avatar>
-        </template>
-        <template
-          v-if="name === 'user'"
-          #item.name="{ item }"
-        >
-          <NuxtLink :to="`/admin/users/${item.id}`">{{
-            item.name || '(blank)'
-          }}</NuxtLink>
-        </template>
-        <template #item.signupCompleted="{ item }">
-          {{ formatDate(item.signupCompleted.toDate(), { type: 'datetime' }) }}
-        </template>
-        <template #item.firstActivity="{ item }">
-          {{ formatDate(item.firstActivity.toDate(), { type: 'datetime' }) }}
-        </template>
-        <template #item.lastActivity="{ item }">
-          {{ formatDate(item.lastActivity.toDate(), { type: 'datetime' }) }}
-        </template>
-        <template #item.subscribed="{ item }">
-          {{ formatDate(item.subscribed.toDate(), { type: 'datetime' }) }}
-        </template>
-
         <!-- Shared slots -->
         <template #item.created="{ item }">
           {{ formatDate(item.created.toDate(), { type: 'datetime' }) }}
+        </template>
+        <template #item.updated="{ item }">
+          {{ formatDate(item.updated.toDate(), { type: 'datetime' }) }}
         </template>
 
         <!-- Bottom slot -->
