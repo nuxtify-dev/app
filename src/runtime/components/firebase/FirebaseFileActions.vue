@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import saveAs from 'file-saver'
 import type { DocumentReference } from 'firebase/firestore'
 import { arrayRemove, updateDoc } from 'firebase/firestore'
 import { deleteObject, getBlob, ref as storageRef } from 'firebase/storage'
 import type { PropType } from 'vue'
 import { useFirebaseStorage } from 'vuefire'
 import { mdiDelete, mdiCloudDownload } from '@mdi/js'
-import { useToast, useDialog, useErrorMessage } from '#imports'
+import { useToast, useDialog, useErrorMessage, saveBlobAsFile } from '#imports'
 
 // Props
 const props = defineProps({
@@ -90,7 +89,7 @@ async function downloadFile() {
   const file = storageRef(storage, props.fileRef)
   try {
     const blob = await getBlob(file)
-    saveAs(blob, file.name)
+    saveBlobAsFile(blob, file.name)
   }
   catch (error: any) {
     let message = ''
