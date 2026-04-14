@@ -20,10 +20,12 @@ import {
   definePageMeta,
   useSeoMeta,
   navigateTo,
+  useRoute,
 } from '#imports'
 
 // App state
 const nuxtifyConfig = useNuxtifyConfig()
+const route = useRoute()
 const { xs } = useDisplay()
 const errorMessage = useErrorMessage()
 
@@ -69,7 +71,8 @@ async function submitForm() {
     await signInWithEmailAndPassword(auth, email.value, password.value)
 
     // Redirect
-    navigateTo('/')
+    const redirect = route.query.redirect as string | undefined
+    navigateTo(redirect || '/')
   }
   catch (error) {
     let message = 'An unexpected error occurred.'
@@ -153,7 +156,11 @@ async function signinWithGoogle() {
   }
   if (import.meta.dev) {
     // Use this with localhost, still might need to refresh or manually update address bar
-    signInWithPopup(auth, googleProvider)
+    await signInWithPopup(auth, googleProvider)
+
+    // Redirect
+    const redirect = route.query.redirect as string | undefined
+    navigateTo(redirect || '/')
   }
   else {
     // Doesn't work on localhost
