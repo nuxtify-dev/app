@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.3.4
+
+- security: lock down all routes by default
+- fix: query redirect param
+- fix: use saveBlobAsFile
+- fix(types): define slots in firebase file upload dialog
+- ui: make links in admin user list secondary color
+- refactor(playground): use app.config
+- refactor: move signup legal text to component
+- chore(deps): update firebase
+
 ## v0.3.3
 
 - refactor: firebase list table, add itemsPerPage prop
