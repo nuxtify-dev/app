@@ -115,10 +115,7 @@ export default defineNuxtModule<ModuleOptions>({
     }, { prepend: true })
 
     // Route rules
-    extendRouteRules('/', {
-      appMiddleware: ['auth-user-only'],
-    })
-    extendRouteRules('/account/**', {
+    extendRouteRules('/**', {
       appMiddleware: ['auth-user-only'],
     })
     extendRouteRules('/signin', {
@@ -165,6 +162,7 @@ export default defineNuxtModule<ModuleOptions>({
         name: 'signin',
         path: '/signin',
         file: resolver.resolve('./runtime/pages/SignIn.vue'),
+        meta: { auth: false },
       })
 
       // Sign Up
@@ -172,6 +170,7 @@ export default defineNuxtModule<ModuleOptions>({
         name: 'signup',
         path: '/signup',
         file: resolver.resolve('./runtime/pages/SignUp.vue'),
+        meta: { auth: false },
       })
 
       // Sign Out
@@ -179,6 +178,7 @@ export default defineNuxtModule<ModuleOptions>({
         name: 'signout',
         path: '/signout',
         file: resolver.resolve('./runtime/pages/SignOut.vue'),
+        meta: { auth: false },
       })
 
       // Account
