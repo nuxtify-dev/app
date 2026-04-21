@@ -72,6 +72,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  createSlug: {
+    type: String,
+    default: undefined,
+  },
   exportFormats: {
     type: Array<string>,
     default: [],
@@ -117,6 +121,7 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
         :col-ref
         :name
         :disable-create
+        :create-slug
         :export-formats
         :disable-delete
       />

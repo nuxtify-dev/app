@@ -31,6 +31,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  createSlug: {
+    type: String,
+    default: 'create',
+  },
   exportFormats: {
     type: Array<string>,
     default: [],
@@ -73,7 +77,7 @@ const createIcon = computed(() => {
     <!-- Create -->
     <v-btn
       v-if="!disableCreate"
-      :to="`${rootUrl}/create`"
+      :to="`${rootUrl}/${createSlug}`"
       :prepend-icon="createIcon"
       class="ml-sm-2"
     >
