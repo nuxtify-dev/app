@@ -2,14 +2,15 @@ import {
   mdiAccountCog,
   mdiAccountMultiple,
   mdiAccountPlus,
+  mdiCog,
   mdiCommentQuote,
   mdiFirebase,
   mdiForum,
   mdiHome,
   mdiLifebuoy,
   mdiLogin,
+  mdiStar,
   mdiTelevisionPlay,
-  mdiTestTube,
   mdiViewDashboard,
 } from '@mdi/js'
 
@@ -45,14 +46,19 @@ export default defineAppConfig({
           icon: mdiHome,
         },
         {
+          text: 'Features',
+          to: '/features',
+          icon: mdiStar,
+        },
+        {
+          text: 'Config',
+          to: '/config',
+          icon: mdiCog,
+        },
+        {
           text: 'Firebase',
           to: '/firebase',
           icon: mdiFirebase,
-        },
-        {
-          text: 'Test',
-          to: '/test',
-          icon: mdiTestTube,
         },
         {
           text: 'Sign In',
