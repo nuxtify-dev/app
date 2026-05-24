@@ -10,6 +10,7 @@
     "papaparse",
     "subcollection",
     "vercel",
+    "Vitest",
     "vuefire",
     "vuetify"
   ],
