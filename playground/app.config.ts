@@ -21,6 +21,8 @@ export default defineAppConfig({
       logo: {
         lightUrl: '/img/nuxtify-logo-light.png',
         darkUrl: '/img/nuxtify-logo-dark.png',
+        width: 200,
+        height: 40,
       },
       tagline: 'This is a sample tagline for the app module.',
     },
