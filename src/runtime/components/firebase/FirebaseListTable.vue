@@ -154,7 +154,7 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
         hide-details
         clearable
         persistent-clear
-        class="mx-4 mb-2"
+        class="mb-2"
         :max-width="414"
         @click:clear="search = ''"
       />

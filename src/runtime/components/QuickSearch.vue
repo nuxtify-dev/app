@@ -24,10 +24,7 @@ const showQuickSearch = ref(props.show)
 </script>
 
 <template>
-  <div
-    v-if="searchGroups.length"
-    class="px-4"
-  >
+  <div v-if="searchGroups.length">
     <h2 class="text-subtitle-1 font-weight-bold">
       Quick search
 
