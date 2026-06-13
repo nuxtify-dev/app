@@ -112,7 +112,17 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
 <template>
   <div>
     <div class="d-sm-flex justify-space-between mb-4">
-      <span class="text-h5 mt-1">{{ titleCase(namePlural) }}</span>
+      <div class="d-flex align-center mt-1">
+        <span class="text-h5">{{ titleCase(namePlural) }}</span>
+        <v-chip
+          v-if="selectedRows.length"
+          class="ml-2"
+          color="primary"
+          size="small"
+        >
+          {{ selectedRows.length }} selected
+        </v-chip>
+      </div>
 
       <FirebaseListActions
         v-if="!disableCreate || exportFormats.length || !disableDelete"
