@@ -64,7 +64,7 @@ const props = defineProps({
   },
   updateTimestamp: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 })
 
