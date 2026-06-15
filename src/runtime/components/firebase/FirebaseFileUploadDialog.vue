@@ -62,6 +62,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  updateTimestamp: {
+    type: Boolean,
+    default: true,
+  },
 })
 
 // STATE - GLOBAL
@@ -87,12 +91,17 @@ async function submitForm() {
 
   // Save to Firebase
   const updatePromises = fileRefs.value.map((fileRef) => {
-    return updateDoc(props.docRef, {
+    const updateData: Record<string, any> = {
       [props.uploadFieldName]: props.uploadMultiple
         ? arrayUnion(fileRef)
         : fileRef,
-      lastUpdated: serverTimestamp(),
-    })
+    }
+
+    if (props.updateTimestamp) {
+      updateData.lastUpdated = serverTimestamp()
+    }
+
+    return updateDoc(props.docRef, updateData)
   })
 
   try {
