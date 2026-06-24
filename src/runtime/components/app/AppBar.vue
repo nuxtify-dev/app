@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useDisplay } from 'vuetify'
-import { useCurrentUser } from 'vuefire'
 import { useRoute } from 'vue-router'
 import { useDrawer, useSignOut } from '#imports'
 
-// App state
+// STATE - GLOBAL
 const { xs } = useDisplay()
 const drawer = useDrawer()
-const currentUser = useCurrentUser()
 const { signOut } = useSignOut()
 
-// Page info
+// ROUTE
 const route = useRoute()
 const isSigningUp = computed(() => route.meta.layout === 'signup')
 
@@ -23,6 +21,7 @@ const clickSignOut = async () => {
 <template>
   <v-app-bar
     :density="xs ? 'comfortable' : 'default'"
+    border="b-thin"
     flat
   >
     <v-app-bar-nav-icon
@@ -52,10 +51,13 @@ const clickSignOut = async () => {
       >
         Sign Out
       </v-btn>
-      <AppUserMenu v-else />
+      <AppUserMenu
+        v-else
+        class="mr-2"
+      />
 
       <!-- Navigation overflow -->
-      <AppNavigationOverflow :class="`ml-${currentUser ? '1' : '0'}`" />
+      <AppNavigationOverflow />
     </template>
   </v-app-bar>
 </template>
