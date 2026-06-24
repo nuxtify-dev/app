@@ -1,5 +1,31 @@
 # Changelog
 
+## v0.3.5
+
+[compare changes](https://github.com/nuxtify-dev/app/compare/v0.3.4...v0.3.5)
+
+### 🚀 Enhancements
+
+- Firebase table create slug overriding ([05bf6b1](https://github.com/nuxtify-dev/app/commit/05bf6b1))
+- **playground:** Add polished demos ([852b00a](https://github.com/nuxtify-dev/app/commit/852b00a))
+
+### 🩹 Fixes
+
+- **types:** Duplicate type import ([e256dc5](https://github.com/nuxtify-dev/app/commit/e256dc5))
+- **ui:** Alignment issue ([9a5c3d9](https://github.com/nuxtify-dev/app/commit/9a5c3d9))
+- Make metadata update optional on file upload ([71b3b76](https://github.com/nuxtify-dev/app/commit/71b3b76))
+
+### 📖 Documentation
+
+- Use npmx.dev in readme ([a5523a3](https://github.com/nuxtify-dev/app/commit/a5523a3))
+
+### 🏡 Chore
+
+- Update release command ([bc290b5](https://github.com/nuxtify-dev/app/commit/bc290b5))
+- **ci:** Update gh ci workflow ([8989399](https://github.com/nuxtify-dev/app/commit/8989399))
+- Prefer nuxt to nuxi ([6ff97e0](https://github.com/nuxtify-dev/app/commit/6ff97e0))
+- Spelling ([0c16d79](https://github.com/nuxtify-dev/app/commit/0c16d79))
+
 ## v0.3.4
 
 - security: lock down all routes by default
