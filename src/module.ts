@@ -1,17 +1,15 @@
-import { defu } from 'defu'
 import {
   addComponentsDir,
   addImportsDir,
   addLayout,
-  addPlugin,
   addRouteMiddleware,
   createResolver,
   defineNuxtModule,
   extendPages,
-  installModule,
   useLogger,
   extendRouteRules,
 } from '@nuxt/kit'
+import { defu } from 'defu'
 import { name, version } from '../package.json'
 import type { ModuleOptions } from './types/module'
 
@@ -24,12 +22,33 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt: '>=4.0.0',
     },
   },
-  defaults: {
-    // Brand
-    brand: {
-      name,
+  moduleDependencies: {
+    '@nuxtify/core': {
+      version: '>=0.8.0',
     },
-
+    'nuxt-vuefire': {
+      version: '>=1.1.2',
+      defaults: {
+        config: {
+          apiKey: '',
+          authDomain: '',
+          projectId: '',
+          storageBucket: '',
+          messagingSenderId: '',
+          appId: '',
+          measurementId: '',
+        },
+        auth: true,
+        appCheck: {
+          debug: process.env.NODE_ENV !== 'production',
+          isTokenAutoRefreshEnabled: true,
+          provider: 'ReCaptchaEnterprise',
+          key: '',
+        },
+      },
+    },
+  },
+  defaults: {
     // Auth
     auth: {
       providers: {
@@ -47,71 +66,45 @@ export default defineNuxtModule<ModuleOptions>({
       admin: [],
     },
   },
-  async setup(_options, _nuxt) {
-    const resolver = createResolver(import.meta.url)
-    const logger = useLogger('Nuxtify App')
+  async setup(options, nuxt) {
+    const { resolve } = createResolver(import.meta.url)
+    const logger = useLogger('nuxtify-app')
 
     // Warn if SSR
-    if (_nuxt.options.ssr) {
-      logger.warn('[Nuxtify App]', 'Not compatible with SSR. For the most reliable experience, please set `ssr: false` in your nuxt.config.ts.')
-      _nuxt.options.ssr = false
+    if (nuxt.options.ssr) {
+      logger.warn('Not compatible with SSR. For the most reliable experience, please set `ssr: false` in your nuxt.config.ts.')
+      nuxt.options.ssr = false
     }
 
     // Expose module options to app config
-    _nuxt.options.appConfig.nuxtify = defu(_nuxt.options.appConfig.nuxtify, {
-      ..._options,
+    nuxt.options.appConfig.nuxtify = defu(nuxt.options.appConfig.nuxtify, {
+      ...options,
     })
-
-    // Modules
-    await installModule('@nuxtify/core', {
-      verboseLogs: _options.verboseLogs,
-    })
-    await installModule('nuxt-vuefire', {
-      config: {
-        apiKey: '',
-        authDomain: '',
-        projectId: '',
-        storageBucket: '',
-        messagingSenderId: '',
-        appId: '',
-        measurementId: '',
-      },
-      auth: true,
-      appCheck: {
-        debug: process.env.NODE_ENV !== 'production',
-        isTokenAutoRefreshEnabled: true,
-        provider: 'ReCaptchaEnterprise',
-        key: '',
-      },
-    })
-
-    // Plugins
-    addPlugin(resolver.resolve('./runtime/plugins/vuetify'))
 
     // Components
     addComponentsDir({
-      path: resolver.resolve('./runtime/components'),
+      path: resolve('./runtime/components'),
     })
 
     // Composables
-    addImportsDir(resolver.resolve('./runtime/composables'))
-    addImportsDir(resolver.resolve('./runtime/composables/firebase'))
+    addImportsDir(resolve('./runtime/composables'))
+    addImportsDir(resolve('./runtime/composables/firebase'))
 
     // Utils
-    addImportsDir(resolver.resolve('./runtime/utils'))
+    addImportsDir(resolve('./runtime/utils'))
 
     // Middleware
     addRouteMiddleware({
       name: 'auth-public',
-      path: resolver.resolve('./runtime/middleware/authPublic'),
+      path: resolve('./runtime/middleware/authPublic'),
     }, { prepend: true })
     addRouteMiddleware({
       name: 'auth-user-only',
-      path: resolver.resolve('./runtime/middleware/authUserOnly'),
+      path: resolve('./runtime/middleware/authUserOnly'),
     }, { prepend: true })
     addRouteMiddleware({
       name: 'auth-super-admin-only',
-      path: resolver.resolve('./runtime/middleware/authSuperAdminOnly'),
+      path: resolve('./runtime/middleware/authSuperAdminOnly'),
     }, { prepend: true })
 
     // Route rules
@@ -131,19 +124,19 @@ export default defineNuxtModule<ModuleOptions>({
     // Layouts
     addLayout(
       {
-        src: resolver.resolve('./runtime/layouts/DefaultLayout.vue'),
+        src: resolve('./runtime/layouts/DefaultLayout.vue'),
       },
       'default',
     )
     addLayout(
       {
-        src: resolver.resolve('./runtime/layouts/PublicLayout.vue'),
+        src: resolve('./runtime/layouts/PublicLayout.vue'),
       },
       'public',
     )
     addLayout(
       {
-        src: resolver.resolve('./runtime/layouts/SignupLayout.vue'),
+        src: resolve('./runtime/layouts/SignupLayout.vue'),
       },
       'signup',
     )
@@ -154,14 +147,14 @@ export default defineNuxtModule<ModuleOptions>({
       pages.unshift({
         name: 'index',
         path: '/',
-        file: resolver.resolve('./runtime/pages/IndexPage.vue'),
+        file: resolve('./runtime/pages/IndexPage.vue'),
       })
 
       // Sign In
       pages.unshift({
         name: 'signin',
         path: '/signin',
-        file: resolver.resolve('./runtime/pages/SignIn.vue'),
+        file: resolve('./runtime/pages/SignIn.vue'),
         meta: { auth: false },
       })
 
@@ -169,7 +162,7 @@ export default defineNuxtModule<ModuleOptions>({
       pages.unshift({
         name: 'signup',
         path: '/signup',
-        file: resolver.resolve('./runtime/pages/SignUp.vue'),
+        file: resolve('./runtime/pages/SignUp.vue'),
         meta: { auth: false },
       })
 
@@ -177,7 +170,7 @@ export default defineNuxtModule<ModuleOptions>({
       pages.unshift({
         name: 'signout',
         path: '/signout',
-        file: resolver.resolve('./runtime/pages/SignOut.vue'),
+        file: resolve('./runtime/pages/SignOut.vue'),
         meta: { auth: false },
       })
 
@@ -185,38 +178,38 @@ export default defineNuxtModule<ModuleOptions>({
       pages.unshift({
         name: 'account',
         path: '/account',
-        file: resolver.resolve('./runtime/pages/AccountPage.vue'),
+        file: resolve('./runtime/pages/AccountPage.vue'),
       })
 
       // Admin
       pages.unshift({
         name: 'admin',
         path: '/admin',
-        file: resolver.resolve('./runtime/pages/admin/AdminIndex.vue'),
+        file: resolve('./runtime/pages/admin/AdminIndex.vue'),
       })
       pages.unshift({
         name: 'admin-users',
         path: '/admin/users',
-        file: resolver.resolve('./runtime/pages/admin/users/UsersIndex.vue'),
+        file: resolve('./runtime/pages/admin/users/UsersIndex.vue'),
       })
       pages.unshift({
         name: 'admin-users-uid',
         path: '/admin/users/:uid',
-        file: resolver.resolve('./runtime/pages/admin/users/[uid]/UserIndex.vue'),
+        file: resolve('./runtime/pages/admin/users/[uid]/UserIndex.vue'),
       })
     })
 
     // Public
-    _nuxt.hook('nitro:config', async (nitroConfig) => {
+    nuxt.hook('nitro:config', async (nitroConfig) => {
       nitroConfig.publicAssets ||= []
       nitroConfig.publicAssets.push({
-        dir: resolver.resolve('./runtime/public'),
+        dir: resolve('./runtime/public'),
         maxAge: 60 * 60 * 24 * 365, // 1 year
       })
     })
 
     // Remove duplicate imports (to suppress Nuxt warnings)
-    _nuxt.hook('imports:extend', (imports) => {
+    nuxt.hook('imports:extend', (imports) => {
       // Find and remove the 'useNuxtifyConfig' import that comes from '@nuxtify/core'
       const coreImportIndex = imports.findIndex((imp) => {
         // The 'name' property refers to the exported name of the composable.
@@ -229,10 +222,8 @@ export default defineNuxtModule<ModuleOptions>({
 
       if (coreImportIndex > -1) {
         imports.splice(coreImportIndex, 1)
-        if (_options.verboseLogs)
-          logger.info('[Nuxtify App]',
-            'Intentionally overriding useNuxtifyConfig from @nuxtify/core.',
-          )
+        if (options.verboseLogs)
+          logger.info('Intentionally overriding useNuxtifyConfig from @nuxtify/core.')
       }
     })
   },
