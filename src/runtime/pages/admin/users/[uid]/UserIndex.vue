@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHead, useRoute } from '#imports'
+import { useHead, useRouteParam } from '#imports'
 
 // PAGE INFO
 useHead({
@@ -7,8 +7,7 @@ useHead({
 })
 
 // ROUTE INFO
-const route = useRoute()
-const uid = route.params.uid as string
+const uid = useRouteParam('uid')
 </script>
 
 <template>
