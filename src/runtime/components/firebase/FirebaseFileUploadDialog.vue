@@ -4,7 +4,6 @@ import { arrayUnion, serverTimestamp, updateDoc } from 'firebase/firestore'
 import type { VForm } from 'vuetify/components'
 import type { PropType } from 'vue'
 import { ref } from 'vue'
-import { mdiFilePlus } from '@mdi/js'
 import { useToast, useErrorMessage, pluralize } from '#imports'
 
 // SLOTS
@@ -30,7 +29,7 @@ const props = defineProps({
   },
   buttonIcon: {
     type: String,
-    default: mdiFilePlus,
+    default: 'mdi-file-plus',
   },
   buttonVariant: {
     type: String as PropType<'flat' | 'text' | 'elevated' | 'tonal' | 'outlined' | 'plain' | undefined>,

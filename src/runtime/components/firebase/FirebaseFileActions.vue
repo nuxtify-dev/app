@@ -4,7 +4,6 @@ import { arrayRemove, updateDoc } from 'firebase/firestore'
 import { deleteObject, getBlob, ref as storageRef } from 'firebase/storage'
 import type { PropType } from 'vue'
 import { useFirebaseStorage } from 'vuefire'
-import { mdiDelete, mdiCloudDownload } from '@mdi/js'
 import { useToast, useDialog, useErrorMessage, saveBlobAsFile } from '#imports'
 
 // Props
@@ -35,8 +34,8 @@ const storage = useFirebaseStorage()
 function showDeleteDialog() {
   dialog.value.title = 'Are you sure?'
   dialog.value.message = `This will permanently delete this file.`
-  dialog.value.action.buttonText = 'Delete'
-  dialog.value.action.buttonColor = 'error'
+  dialog.value.action.button.text = 'Delete'
+  dialog.value.action.button.color = 'error'
   dialog.value.action.function = deleteFile
 
   // Show dialog
@@ -107,7 +106,7 @@ async function downloadFile() {
   <v-btn
     v-if="!disableDelete"
     color="error"
-    :icon="mdiDelete"
+    icon="mdi-delete"
     variant="text"
     class="mr-2"
     @click.stop="showDeleteDialog"
@@ -115,7 +114,7 @@ async function downloadFile() {
 
   <!-- Download -->
   <v-btn
-    :icon="mdiCloudDownload"
+    icon="mdi-cloud-download"
     variant="text"
     @click.stop="downloadFile"
   />

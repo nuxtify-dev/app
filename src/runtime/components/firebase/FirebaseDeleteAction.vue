@@ -4,7 +4,6 @@ import { doc, writeBatch } from 'firebase/firestore'
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 import { useFirestore } from 'vuefire'
-import { mdiDelete } from '@mdi/js'
 import {
   useToast,
   useDialog,
@@ -62,8 +61,8 @@ function showDeleteDialog() {
     props.name,
     true,
   )}.`
-  dialog.value.action.buttonText = 'Delete'
-  dialog.value.action.buttonColor = 'error'
+  dialog.value.action.button.text = 'Delete'
+  dialog.value.action.button.color = 'error'
   dialog.value.action.function = deleteItems
 
   // Show dialog
@@ -116,7 +115,7 @@ async function deleteItems() {
     v-if="isSelected"
     variant="text"
     color="error"
-    :prepend-icon="mdiDelete"
+    prepend-icon="mdi-delete"
     @click="showDeleteDialog"
   >
     Delete

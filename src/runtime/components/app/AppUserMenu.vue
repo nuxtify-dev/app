@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { mdiAccount, mdiExport, mdiArrowTopRight } from '@mdi/js'
 import { useCurrentUser } from 'vuefire'
 import { useNuxtifyConfig, useSignOut } from '#imports'
 
@@ -32,7 +31,7 @@ const clickSignOut = async () => {
             />
             <v-icon
               v-else
-              :icon="mdiAccount"
+              icon="mdi-account"
             />
           </v-avatar>
         </v-btn>
@@ -61,7 +60,7 @@ const clickSignOut = async () => {
             {{ link.text }}
             <v-icon
               v-if="link.openInNew"
-              :icon="mdiArrowTopRight"
+              icon="mdi-arrow-top-right"
               size="small"
               color="grey"
               class="ml-1"
@@ -75,7 +74,7 @@ const clickSignOut = async () => {
           @click.prevent="clickSignOut"
         >
           <template #prepend>
-            <v-icon :icon="mdiExport" />
+            <v-icon icon="mdi-export" />
           </template>
 
           <v-list-item-title>Sign Out</v-list-item-title>

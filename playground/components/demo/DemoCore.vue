@@ -1,15 +1,4 @@
 <script setup lang="ts">
-import {
-  mdiAlertDecagramOutline,
-  mdiOpenInNew,
-  mdiBellRingOutline,
-  mdiApplicationCogOutline,
-  mdiChartTimelineVariant,
-  mdiHome,
-  mdiCog,
-  mdiStar,
-} from '@mdi/js'
-
 // STATE - GLOBAL
 const dialog = useDialog()
 const toast = useToast()
@@ -24,7 +13,9 @@ const clickDialog = () => {
   dialog.value.title = 'This is a dialog!'
   dialog.value.message = 'It can have fun messages.'
   dialog.value.action.function = () => {
+    dialog.value.action.loading = true
     setTimeout(() => {
+      dialog.value.action.loading = false
       dialog.value.show = false
     }, 2000)
   }
@@ -34,6 +25,20 @@ const clickToast = () => {
   // Toast
   toast.value.message = 'This is a toast!'
   toast.value.show = true
+}
+
+const analytics = useAnalytics()
+const triggerSignUp = () => {
+  analytics.userSignUp()
+}
+const triggerSignIn = () => {
+  analytics.userSignIn()
+}
+const triggerSignOut = () => {
+  analytics.userSignOut()
+}
+const triggerUpgrade = () => {
+  analytics.userUpgrade('pro_plan')
 }
 </script>
 
@@ -60,7 +65,7 @@ const clickToast = () => {
       <v-col cols="12">
         <div class="d-flex align-center mb-4">
           <v-icon
-            :icon="mdiAlertDecagramOutline"
+            icon="mdi-alert-decagram-outline"
             color="secondary"
             size="large"
             class="mr-2"
@@ -104,7 +109,7 @@ const clickToast = () => {
               <div class="py-6 px-4 bg-grey-lighten-4 rounded mb-4 text-center d-flex align-center justify-center flex-grow-1">
                 <v-btn
                   color="primary"
-                  :prepend-icon="mdiOpenInNew"
+                  prepend-icon="mdi-open-in-new"
                   class="text-none"
                   @click="clickDialog"
                 >
@@ -148,7 +153,7 @@ const clickToast = () => {
               <div class="py-6 px-4 bg-grey-lighten-4 rounded mb-4 text-center d-flex align-center justify-center flex-grow-1">
                 <v-btn
                   color="secondary"
-                  :prepend-icon="mdiBellRingOutline"
+                  prepend-icon="mdi-bell-ring-outline"
                   class="text-none"
                   @click="clickToast"
                 >
@@ -170,7 +175,7 @@ const clickToast = () => {
       <v-col cols="12">
         <div class="d-flex align-center mb-4">
           <v-icon
-            :icon="mdiApplicationCogOutline"
+            icon="mdi-application-cog-outline"
             color="secondary"
             size="large"
             class="mr-2"
@@ -251,25 +256,90 @@ const clickToast = () => {
       </v-col>
     </v-row>
 
-    <!-- Section 3: Utilities -->
+    <!-- Section 3: Analytics & Utilities -->
     <v-row class="mb-8">
       <v-col cols="12">
         <div class="d-flex align-center mb-4">
           <v-icon
-            :icon="mdiChartTimelineVariant"
+            icon="mdi-chart-timeline-variant"
             color="secondary"
             size="large"
             class="mr-2"
           />
           <h2 class="text-h5 font-weight-bold">
-            Styling Utilities
+            Analytics & Styling Utilities
           </h2>
         </div>
         <p class="text-body-1 text-medium-emphasis mb-6">
-          In-built micro-interactions, such as modern link hover effects and icon helper systems.
+          In-built analytics framework integrations and micro-interactions, such as modern link hover effects and icon helper systems.
         </p>
 
         <v-row>
+          <!-- Analytical Event Tracking -->
+          <v-col
+            cols="12"
+            lg="6"
+          >
+            <v-card
+              class="pa-6 border d-flex flex-column h-100"
+              variant="outlined"
+            >
+              <h3 class="text-subtitle-1 font-weight-bold mb-4">
+                Analytical Event Tracking
+              </h3>
+              <p class="text-body-2 text-medium-emphasis mb-4">
+                Custom triggers utilizing the <code>useAnalytics</code> composable to dispatch structured analytics telemetry.
+              </p>
+              <div class="py-6 px-4 bg-grey-lighten-4 rounded mb-4 flex-grow-1 d-flex flex-column justify-center">
+                <div class="d-flex flex-wrap gap-2 justify-center">
+                  <v-btn
+                    color="secondary"
+                    variant="tonal"
+                    size="small"
+                    class="ma-1 text-none"
+                    prepend-icon="mdi-account-plus-outline"
+                    @click="triggerSignUp"
+                  >
+                    Sign Up
+                  </v-btn>
+                  <v-btn
+                    color="secondary"
+                    variant="tonal"
+                    size="small"
+                    class="ma-1 text-none"
+                    prepend-icon="mdi-login-variant"
+                    @click="triggerSignIn"
+                  >
+                    Sign In
+                  </v-btn>
+                  <v-btn
+                    color="secondary"
+                    variant="tonal"
+                    size="small"
+                    class="ma-1 text-none"
+                    prepend-icon="mdi-logout-variant"
+                    @click="triggerSignOut"
+                  >
+                    Sign Out
+                  </v-btn>
+                  <v-btn
+                    color="secondary"
+                    variant="tonal"
+                    size="small"
+                    class="ma-1 text-none"
+                    prepend-icon="mdi-arrow-up-bold-circle-outline"
+                    @click="triggerUpgrade"
+                  >
+                    Upgrade (pro_plan)
+                  </v-btn>
+                </div>
+              </div>
+              <div class="text-caption text-medium-emphasis">
+                Tracks standard events in local or remote analytics providers.
+              </div>
+            </v-card>
+          </v-col>
+
           <!-- Micro-Interactions & Icons -->
           <v-col
             cols="12"
@@ -305,21 +375,21 @@ const clickToast = () => {
                   <div class="d-flex align-center gap-4 flex-wrap">
                     <span class="d-flex align-center">
                       <v-icon
-                        :icon="mdiHome"
+                        icon="mdi-home"
                         color="secondary"
                         class="mr-1"
                       /> Home
                     </span>
                     <span class="d-flex align-center">
                       <v-icon
-                        :icon="mdiCog"
+                        icon="mdi-cog"
                         color="secondary"
                         class="mr-1"
                       /> Settings
                     </span>
                     <span class="d-flex align-center">
                       <v-icon
-                        :icon="mdiStar"
+                        icon="mdi-star"
                         color="secondary"
                         class="mr-1"
                       /> Star

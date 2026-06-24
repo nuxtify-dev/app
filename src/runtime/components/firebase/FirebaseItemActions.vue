@@ -2,7 +2,6 @@
 import type { DocumentReference } from 'firebase/firestore'
 import { deleteDoc } from 'firebase/firestore'
 import type { PropType } from 'vue'
-import { mdiDelete, mdiPencil } from '@mdi/js'
 import { useToast, useDialog, useErrorMessage, navigateTo, titleCase } from '#imports'
 
 // Props
@@ -42,8 +41,8 @@ const errorMessage = useErrorMessage()
 function showDeleteDialog() {
   dialog.value.title = 'Are you sure?'
   dialog.value.message = `This will permanently delete this ${props.name}.`
-  dialog.value.action.buttonText = 'Delete'
-  dialog.value.action.buttonColor = 'error'
+  dialog.value.action.button.text = 'Delete'
+  dialog.value.action.button.color = 'error'
   dialog.value.action.function = deleteItem
 
   // Show dialog
@@ -83,7 +82,7 @@ async function deleteItem() {
       v-if="!disableDelete"
       variant="text"
       color="error"
-      :prepend-icon="mdiDelete"
+      prepend-icon="mdi-delete"
       @click="showDeleteDialog"
     >
       Delete
@@ -94,7 +93,7 @@ async function deleteItem() {
       v-if="!disableEdit"
       :to="`${rootUrl}/${docRef.id}/edit`"
       variant="text"
-      :prepend-icon="mdiPencil"
+      prepend-icon="mdi-pencil"
       class="ml-2"
     >
       Edit

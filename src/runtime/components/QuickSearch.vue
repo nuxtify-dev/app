@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
 import { ref } from 'vue'
 import type { PropType } from 'vue'
 
@@ -34,7 +33,7 @@ const showQuickSearch = ref(props.show)
       >
         {{ showQuickSearch ? 'Hide' : 'Show' }}
         <v-icon
-          :icon="showQuickSearch ? mdiChevronUp : mdiChevronDown"
+          :icon="showQuickSearch ? 'mdi-chevron-up' : 'mdi-chevron-down'"
         />
       </span>
     </h2>

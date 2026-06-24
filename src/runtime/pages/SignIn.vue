@@ -10,7 +10,6 @@ import {
 import type { VForm } from 'vuetify/components'
 import { useDisplay } from 'vuetify'
 import { useFirebaseAuth, useFirebaseApp } from 'vuefire'
-import { mdiEye, mdiEyeOff } from '@mdi/js'
 import { ref } from 'vue'
 import {
   useNuxtifyConfig,
@@ -103,7 +102,7 @@ async function forgotPassword() {
   const emailErrorMessage = 'Please provide a valid email address.'
 
   // Check if the form is valid
-  if (form.value?.items[0].isValid) {
+  if (form.value?.items[0]?.isValid) {
     // Firebase auth logic
     if (!auth) {
       console.log(
@@ -279,8 +278,8 @@ async function signinWithGoogle() {
               :type="showPassword ? 'text' : 'password'"
               label="Password"
               :rules="[formRules.required]"
-              :counter="form?.items[1].isValid === false ? true : undefined"
-              :append-inner-icon="showPassword ? mdiEye : mdiEyeOff"
+              :counter="form?.items[1]?.isValid === false ? true : undefined"
+              :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
               hide-details="auto"
               minlength="12"
               required

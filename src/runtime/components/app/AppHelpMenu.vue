@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { mdiHelpCircleOutline, mdiArrowTopRight } from '@mdi/js'
 import { useNuxtifyConfig } from '#imports'
 
 // App state
@@ -11,7 +10,7 @@ const nuxtifyConfig = useNuxtifyConfig()
     <v-menu>
       <template #activator="{ props }">
         <v-btn
-          :icon="mdiHelpCircleOutline"
+          icon="mdi-help-circle-outline"
           v-bind="props"
           color="primary"
         />
@@ -50,7 +49,7 @@ const nuxtifyConfig = useNuxtifyConfig()
               {{ link.text }}
               <v-icon
                 v-if="link.openInNew"
-                :icon="mdiArrowTopRight"
+                icon="mdi-arrow-top-right"
                 size="small"
                 color="grey"
                 class="ml-1"

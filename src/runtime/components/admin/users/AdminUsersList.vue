@@ -2,7 +2,6 @@
 import { collection, query } from 'firebase/firestore'
 import { useFirebaseApp, useFirestore, useCollection } from 'vuefire'
 import { provide, computed } from 'vue'
-import { mdiAccount } from '@mdi/js'
 import type { UserDoc } from '../../../../types/firestore'
 import {
   useNuxtifyConfig,
@@ -132,7 +131,7 @@ const searchGroups = [
         />
         <v-icon
           v-else
-          :icon="mdiAccount"
+          icon="mdi-account"
         />
       </v-avatar>
     </template>

@@ -1,30 +1,15 @@
-import {
-  mdiAccountCog,
-  mdiAccountMultiple,
-  mdiAccountPlus,
-  mdiCog,
-  mdiCommentQuote,
-  mdiFirebase,
-  mdiForum,
-  mdiHome,
-  mdiLifebuoy,
-  mdiLogin,
-  mdiStar,
-  mdiTelevisionPlay,
-  mdiViewDashboard,
-} from '@mdi/js'
-
 export default defineAppConfig({
   nuxtify: {
     // Brand
     brand: {
+      name: '@nuxtify/app',
+      tagline: 'This is a sample tagline for the @nuxtify/app module.',
       logo: {
         lightUrl: '/img/nuxtify-logo-light.png',
         darkUrl: '/img/nuxtify-logo-dark.png',
         width: 200,
         height: 40,
       },
-      tagline: 'This is a sample tagline for the app module.',
     },
 
     // Email
@@ -45,32 +30,32 @@ export default defineAppConfig({
         {
           text: 'Home',
           to: '/',
-          icon: mdiHome,
+          icon: 'mdi-home',
         },
         {
           text: 'Features',
           to: '/features',
-          icon: mdiStar,
+          icon: 'mdi-star',
         },
         {
           text: 'Config',
           to: '/config',
-          icon: mdiCog,
+          icon: 'mdi-cog',
         },
         {
           text: 'Firebase',
           to: '/firebase',
-          icon: mdiFirebase,
+          icon: 'mdi-firebase',
         },
         {
           text: 'Sign In',
           to: '/signin',
-          icon: mdiLogin,
+          icon: 'mdi-login',
         },
         {
           text: 'Sign Up',
           to: '/signup',
-          icon: mdiAccountPlus,
+          icon: 'mdi-account-plus',
         },
       ],
       // User menu
@@ -78,7 +63,7 @@ export default defineAppConfig({
         {
           text: 'Account',
           to: '/account',
-          icon: mdiAccountCog,
+          icon: 'mdi-account-cog',
         },
       ],
       // Help menu
@@ -89,7 +74,7 @@ export default defineAppConfig({
             {
               text: 'Getting Started',
               href: '/signup/complete',
-              icon: mdiTelevisionPlay,
+              icon: 'mdi-television-play',
             },
           ],
         },
@@ -99,18 +84,18 @@ export default defineAppConfig({
             {
               text: 'Join Our Community',
               href: '/community',
-              icon: mdiForum,
+              icon: 'mdi-forum',
               openInNew: true,
             },
             {
               text: 'Help & Support',
               to: '/support',
-              icon: mdiLifebuoy,
+              icon: 'mdi-lifebuoy',
             },
             {
               text: 'Leave A Review',
               to: '/review',
-              icon: mdiCommentQuote,
+              icon: 'mdi-comment-quote',
             },
           ],
         },
@@ -147,14 +132,24 @@ export default defineAppConfig({
         {
           text: 'Dashboard',
           to: '/admin',
-          icon: mdiViewDashboard,
+          icon: 'mdi-view-dashboard',
         },
         {
           text: 'Users',
           to: '/admin/users',
-          icon: mdiAccountMultiple,
+          icon: 'mdi-account-multiple',
         },
       ],
+    },
+
+    // Announcement
+    announcement: {
+      show: true,
+      chipText: 'News',
+      message: 'This is a site wide announcement!',
+      buttonText: 'Click me',
+      buttonUrl: 'https://nuxtify.dev/',
+      exclude: ['/privacy', '/terms'],
     },
 
     // Credits

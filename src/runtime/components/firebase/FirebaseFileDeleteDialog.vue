@@ -6,7 +6,6 @@ import { deleteObject, ref as storageRef } from 'firebase/storage'
 import type { PropType } from 'vue'
 import { ref } from 'vue'
 import { useFirebaseStorage } from 'vuefire'
-import { mdiDelete } from '@mdi/js'
 import { useToast, useErrorMessage } from '#imports'
 
 // Props
@@ -35,7 +34,7 @@ const props = defineProps({
   },
   buttonIcon: {
     type: String,
-    default: mdiDelete,
+    default: 'mdi-delete',
   },
   buttonVariant: {
     type: String as PropType<'flat' | 'text' | 'elevated' | 'tonal' | 'outlined' | 'plain' | undefined>,

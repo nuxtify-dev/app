@@ -2,7 +2,6 @@
 import { Timestamp } from 'firebase/firestore'
 import type { ComputedRef } from 'vue'
 import { computed, inject } from 'vue'
-import { mdiDownload } from '@mdi/js'
 import {
   useDialog,
   useSelectedRows,
@@ -70,8 +69,8 @@ function showExportDialog(exportFormat: string) {
     props.name,
     true,
   )} as a ${exportFormat} file. ${exportMessageAppend}`
-  dialog.value.action.buttonText = 'Export'
-  dialog.value.action.buttonColor = 'secondary'
+  dialog.value.action.button.text = 'Export'
+  dialog.value.action.button.color = 'secondary'
   dialog.value.action.function = exportFunction
 
   // Show dialog
@@ -132,7 +131,7 @@ async function exportCSV() {
     v-if="selectedData.length"
     variant="text"
     color="gray"
-    :prepend-icon="mdiDownload"
+    prepend-icon="mdi-download"
   >
     Export
 

@@ -13,7 +13,7 @@ useNuxtifySiteTitle()
     <!-- Accessibility -->
     <NuxtRouteAnnouncer />
 
-    <AppAnnouncementBar v-if="nuxtifyConfig.announcement?.show" />
+    <AppAnnouncement v-if="nuxtifyConfig.announcement?.show" />
 
     <AppBar class="d-print-none" />
 
@@ -22,12 +22,3 @@ useNuxtifySiteTitle()
     </v-main>
   </v-app>
 </template>
-
-<style>
-.hover-link {
-  text-decoration: none;
-}
-.hover-link:hover {
-  text-decoration: underline;
-}
-</style>

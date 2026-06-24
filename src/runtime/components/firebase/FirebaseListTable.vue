@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { CollectionReference } from 'firebase/firestore'
-import { mdiMagnify, mdiArrowTopRight } from '@mdi/js'
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 import {
@@ -147,7 +146,7 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
       <!-- Search -->
       <v-text-field
         v-model="search"
-        :prepend-inner-icon="mdiMagnify"
+        prepend-inner-icon="mdi-magnify"
         :label="`Filter ${namePlural}`"
         variant="underlined"
         single-line
@@ -193,7 +192,7 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
           >
             Open
             <v-icon
-              :icon="mdiArrowTopRight"
+              icon="mdi-arrow-top-right"
               size="small"
               color="grey"
               class="mb-1"
@@ -211,7 +210,7 @@ const viewItem = (pointerEvent: PointerEvent, item: any) => {
           >
             Open
             <v-icon
-              :icon="mdiArrowTopRight"
+              icon="mdi-arrow-top-right"
               size="small"
               color="grey"
               class="mb-1"

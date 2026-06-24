@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { mdiCogOutline } from '@mdi/js'
-
 // STATE - GLOBAL
 const nuxtifyConfig = useNuxtifyConfig()
 </script>
@@ -11,7 +9,7 @@ const nuxtifyConfig = useNuxtifyConfig()
       <v-col cols="12">
         <div class="d-flex align-center mb-4">
           <v-icon
-            :icon="mdiCogOutline"
+            icon="mdi-cog-outline"
             color="secondary"
             size="large"
             class="mr-2"

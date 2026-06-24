@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useDisplay } from 'vuetify'
 import { useCurrentUser } from 'vuefire'
-import { mdiArrowTopRight } from '@mdi/js'
 import { useNuxtifyConfig, useDrawer, isSuperAdmin } from '#imports'
 
 // App state
@@ -50,7 +49,7 @@ const isExpanded = ref(false)
             {{ link.text }}
             <v-icon
               v-if="link.openInNew"
-              :icon="mdiArrowTopRight"
+              icon="mdi-arrow-top-right"
               size="small"
               color="grey"
               class="ml-1"
@@ -89,7 +88,7 @@ const isExpanded = ref(false)
               {{ link.text }}
               <v-icon
                 v-if="link.openInNew"
-                :icon="mdiArrowTopRight"
+                icon="mdi-arrow-top-right"
                 size="small"
                 color="grey"
                 class="ml-1"

@@ -2,7 +2,6 @@
 import { ref as storageRef, uploadBytes } from 'firebase/storage'
 import { computed, ref } from 'vue'
 import { useFirebaseStorage } from 'vuefire'
-import { mdiCloudUpload } from '@mdi/js'
 import { useDisplay } from 'vuetify'
 import { useErrorMessage, formRules, filenameToUrl } from '#imports'
 
@@ -171,7 +170,7 @@ function uploadFiles() {
     validate-on="input"
     :accept="acceptedFileTypes.join(', ')"
     prepend-icon=""
-    :prepend-inner-icon="mdiCloudUpload"
+    prepend-inner-icon="mdi-cloud-upload"
     :loading
     show-size
     counter

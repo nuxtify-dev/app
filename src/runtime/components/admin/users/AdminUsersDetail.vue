@@ -2,7 +2,6 @@
 import { doc } from 'firebase/firestore'
 import { useFirebaseApp, useFirestore, useDocument } from 'vuefire'
 import { computed } from 'vue'
-import { mdiAccount, mdiArrowTopRight } from '@mdi/js'
 import type { UserDoc } from '../../../../types/firestore'
 import {
   useDisplay,
@@ -85,7 +84,7 @@ const breadcrumbs = [
               />
               <v-icon
                 v-else
-                :icon="mdiAccount"
+                icon="mdi-account"
                 :size="xs ? 60 : 85"
               />
             </v-avatar>
@@ -163,7 +162,7 @@ const breadcrumbs = [
                 >
                   Open in Firestore
                   <v-icon
-                    :icon="mdiArrowTopRight"
+                    icon="mdi-arrow-top-right"
                     size="small"
                     color="grey"
                     class="mb-1"
@@ -183,7 +182,7 @@ const breadcrumbs = [
                 >
                   Open in Cloud Storage
                   <v-icon
-                    :icon="mdiArrowTopRight"
+                    icon="mdi-arrow-top-right"
                     size="small"
                     color="grey"
                     class="mb-1"

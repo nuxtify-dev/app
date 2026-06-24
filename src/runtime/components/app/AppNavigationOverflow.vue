@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { mdiDotsVertical, mdiArrowTopRight } from '@mdi/js'
 import { useNuxtifyConfig } from '#imports'
 
 // App state
@@ -12,7 +11,7 @@ const nuxtifyConfig = useNuxtifyConfig()
       <template #activator="{ props }">
         <v-btn
           v-bind="props"
-          :icon="mdiDotsVertical"
+          icon="mdi-dots-vertical"
           color="grey-darken-3"
           aria-label="Overflow menu"
         />
@@ -42,7 +41,7 @@ const nuxtifyConfig = useNuxtifyConfig()
               {{ link.text }}
               <v-icon
                 v-if="link.openInNew"
-                :icon="mdiArrowTopRight"
+                icon="mdi-arrow-top-right"
                 size="small"
                 color="grey"
                 class="ml-1"

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { CollectionReference } from 'firebase/firestore'
-import { mdiClockPlus, mdiPlus } from '@mdi/js'
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import { titleCase } from '#imports'
@@ -45,9 +44,9 @@ const props = defineProps({
 const createIcon = computed(() => {
   switch (props.name) {
     case 'activity':
-      return mdiClockPlus
+      return 'mdi-clock-plus'
     default:
-      return mdiPlus
+      return 'mdi-plus'
   }
 })
 </script>
