@@ -1,5 +1,37 @@
 # Changelog
 
+## v0.4.0
+
+Requires Nuxt 4.
+
+[compare changes](https://github.com/nuxtify-dev/app/compare/v0.3.5...v0.4.0)
+
+### 🚀 Enhancements
+
+- **types:** Export module types ([4b2158a](https://github.com/nuxtify-dev/app/commit/4b2158a))
+- **playground:** Add stackblitz start command ([e0d9161](https://github.com/nuxtify-dev/app/commit/e0d9161))
+
+### 🩹 Fixes
+
+- **playground:** Nuxt 4 dependency ([d2123ea](https://github.com/nuxtify-dev/app/commit/d2123ea))
+- **ui:** Link hover class ([f421c48](https://github.com/nuxtify-dev/app/commit/f421c48))
+
+### 💅 Refactors
+
+- ⚠️  Use module dependencies ([43f100d](https://github.com/nuxtify-dev/app/commit/43f100d))
+- Use useRouteParam ([b2eaae6](https://github.com/nuxtify-dev/app/commit/b2eaae6))
+
+### 🏡 Chore
+
+- **deps:** ⚠️  Upgrade to nuxt 4 ([271f394](https://github.com/nuxtify-dev/app/commit/271f394))
+- Delete .npmrc ([531fda1](https://github.com/nuxtify-dev/app/commit/531fda1))
+- Lint ([8b27e62](https://github.com/nuxtify-dev/app/commit/8b27e62))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Use module dependencies ([43f100d](https://github.com/nuxtify-dev/app/commit/43f100d))
+- **deps:** ⚠️  Upgrade to nuxt 4 ([271f394](https://github.com/nuxtify-dev/app/commit/271f394))
+
 ## v0.3.5
 
 [compare changes](https://github.com/nuxtify-dev/app/compare/v0.3.4...v0.3.5)

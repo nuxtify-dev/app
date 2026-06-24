@@ -1,6 +1,6 @@
 {
   "name": "@nuxtify/app",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "description": "Nuxtify app module powered by Nuxt, Vuetify, and Firebase.",
   "license": "MIT",
   "homepage": "https://nuxtify.dev",
