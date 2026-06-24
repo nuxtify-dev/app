@@ -30,5 +30,5 @@ interface AppModuleOptions {
   navigation?: Navigation
 }
 
-export type ModuleOptions = Omit<CoreModuleOptions, keyof AppModuleOptions> &
-  AppModuleOptions
+export type ModuleOptions = Omit<CoreModuleOptions, keyof AppModuleOptions>
+  & AppModuleOptions
