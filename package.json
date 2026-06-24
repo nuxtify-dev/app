@@ -46,8 +46,8 @@
   },
   "dependencies": {
     "@nuxtify/core": "^0.1.10",
-    "csv-stringify": "^6.7.0",
-    "defu": "^6.1.4",
+    "csv-stringify": "^6.8.0",
+    "defu": "^6.1.7",
     "firebase": "^12.15.0",
     "nuxt-vuefire": "^1.1.2"
   },
