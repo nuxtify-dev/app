@@ -53,3 +53,12 @@ onMounted(() => {
     <AppDialog class="d-print-none" />
   </v-app>
 </template>
+
+<style>
+.link-hover {
+  text-decoration: none;
+}
+.link-hover:hover {
+  text-decoration: underline;
+}
+</style>
