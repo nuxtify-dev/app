@@ -49,7 +49,7 @@
     "csv-stringify": "^6.7.0",
     "defu": "^6.1.4",
     "firebase": "^12.12.0",
-    "nuxt-vuefire": "^1.1.0"
+    "nuxt-vuefire": "^1.1.2"
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.5.0",
