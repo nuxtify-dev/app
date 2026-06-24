@@ -21,7 +21,7 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     configKey: 'nuxtifyApp',
     compatibility: {
-      nuxt: '>=3.16.0',
+      nuxt: '>=4.0.0',
     },
   },
   defaults: {
