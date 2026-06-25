@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.4.1
+
+[compare changes](https://github.com/nuxtify-dev/app/compare/v0.4.0...v0.4.1)
+
+### 🩹 Fixes
+
+- Don't hard code policies ([bd07a38](https://github.com/nuxtify-dev/app/commit/bd07a38))
+- **ui:** Sign in/up page layout and logo ([8e6bdf5](https://github.com/nuxtify-dev/app/commit/8e6bdf5))
+
 ## v0.4.0
 
 Requires Nuxt 4.
