@@ -169,23 +169,30 @@ async function signinWithGoogle() {
 </script>
 
 <template>
-  <v-container class="py-0">
+  <v-container class="fill-height">
     <v-row
-      align="center"
+      :align="xs ? undefined : 'center'"
       justify="center"
-      class="h-screen"
+      class="fill-height"
     >
       <v-col
         cols="12"
         sm="6"
         xl="3"
       >
-        <!-- Logo and Tagline -->
-        <AppLogo
-          :width="xs ? 200 : 250"
-          class="mx-auto mx-sm-0"
-        />
-        <div class="text-center text-sm-left text-h6 text-sm-h5 mt-4">
+        <div class="d-flex align-center">
+          <!-- Logo and Tagline -->
+          <AppLogo
+            :width="xs
+              ? Math.round(nuxtifyConfig.brand?.logo.mobileWidth * 1.5)
+              : Math.round(nuxtifyConfig.brand?.logo.width * 2)"
+            :height="xs
+              ? Math.round(nuxtifyConfig.brand?.logo.mobileHeight * 1.5)
+              : Math.round(nuxtifyConfig.brand?.logo.height * 2)"
+            class="mx-auto mx-sm-0"
+          />
+        </div>
+        <div class="text-center text-sm-left text-subtitle-1 text-sm-h5 mt-4">
           {{ nuxtifyConfig.brand?.tagline }}
         </div>
       </v-col>
@@ -218,7 +225,7 @@ async function signinWithGoogle() {
             v-if="nuxtifyConfig.auth?.providers?.google?.enabled"
             variant="outlined"
             color="default"
-            :size="xs ? 'default' : 'large'"
+            size="large"
             block
             @click.prevent="signinWithGoogle"
           >

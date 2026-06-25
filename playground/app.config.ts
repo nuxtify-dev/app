@@ -3,12 +3,15 @@ export default defineAppConfig({
     // Brand
     brand: {
       name: '@nuxtify/app',
-      tagline: 'This is a sample tagline for the @nuxtify/app module.',
+      domain: 'nuxtify.dev',
+      tagline: 'Catchy tagline for the @nuxtify/app module.',
       logo: {
         lightUrl: '/img/nuxtify-logo-light.png',
         darkUrl: '/img/nuxtify-logo-dark.png',
         width: 200,
         height: 40,
+        mobileWidth: 100,
+        mobileHeight: 20,
       },
     },
 
@@ -147,9 +150,9 @@ export default defineAppConfig({
       show: true,
       chipText: 'News',
       message: 'This is a site wide announcement!',
-      buttonText: 'Click me',
-      buttonUrl: 'https://nuxtify.dev/',
-      exclude: ['/privacy', '/terms'],
+      buttonText: 'Sign Up',
+      buttonUrl: '/signup',
+      exclude: ['/privacy', '/terms', '/signup'],
     },
 
     // Credits
